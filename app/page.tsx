@@ -1,18 +1,21 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main
       style={{
         minHeight: "100vh",
-        background: "#FFF9F5",
-        padding: "40px 20px",
+        background:
+          "linear-gradient(to bottom, #FFF8FB, #FFEAF4, #F8E8FF)",
+        padding: "30px",
         fontFamily: "Arial",
       }}
     >
+      {/* Hero */}
       <div
         style={{
-          maxWidth: "500px",
-          margin: "auto",
           textAlign: "center",
+          marginBottom: "40px",
         }}
       >
         <h1
@@ -22,87 +25,217 @@ export default function Home() {
             marginBottom: "10px",
           }}
         >
-          🎀 Peptiéra Lounge
+          🎀 Peptiéra
         </h1>
 
         <p
           style={{
             color: "#7A4D7C",
             fontSize: "1.2rem",
-            marginBottom: "40px",
           }}
         >
-          Private members-only wellness and group buy platform ✨
+          Fresh • Potent • Trusted
         </p>
 
-        <a
-          href="/products"
-          style={{ textDecoration: "none", color: "black" }}
+        <p
+          style={{
+            color: "#7A4D7C",
+          }}
         >
+          Private Members-Only Wellness Platform ✨
+        </p>
+      </div>
+
+      {/* Quick Access */}
+      <h2
+        style={{
+          color: "#FF4F9F",
+          marginBottom: "20px",
+        }}
+      >
+        ✨ Quick Access
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "15px",
+          marginBottom: "40px",
+        }}
+      >
+        <Link href="/products" style={{ textDecoration: "none" }}>
           <div
             style={{
-              background: "#FFD3E8",
-              padding: "25px",
+              background: "#FFD6EB",
+              padding: "20px",
               borderRadius: "25px",
-              marginBottom: "20px",
+              color: "black",
             }}
           >
-            <h2>🛍 Products</h2>
-            <p>Browse available products and upcoming batches.</p>
+            🛍 Products
           </div>
-        </a>
+        </Link>
 
-        <a
-          href="/tracker"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link href="/pricelist" style={{ textDecoration: "none" }}>
           <div
             style={{
-              background: "#D8B4FF",
-              padding: "25px",
+              background: "#FFF0C7",
+              padding: "20px",
               borderRadius: "25px",
-              marginBottom: "20px",
+              color: "black",
+            }}
+          >
+            💗 Price List
+          </div>
+        </Link>
+
+        <Link href="/tracker" style={{ textDecoration: "none" }}>
+          <div
+            style={{
+              background: "#DDBBFF",
+              padding: "20px",
+              borderRadius: "25px",
               color: "white",
             }}
           >
-            <h2>📦 Order Tracker</h2>
-            <p>Track your orders and shipment updates.</p>
+            📦 Order Tracker
           </div>
-        </a>
+        </Link>
 
-        <a
-          href="/calculator"
-          style={{ textDecoration: "none", color: "black" }}
-        >
+        <Link href="/calculator" style={{ textDecoration: "none" }}>
           <div
             style={{
-              background: "#FFE5F1",
-              padding: "25px",
+              background: "#CFE9FF",
+              padding: "20px",
               borderRadius: "25px",
-              marginBottom: "20px",
+              color: "black",
             }}
           >
-            <h2>🧮 Order Calculator</h2>
-            <p>Calculate your order total, weight, and shipping ✨</p>
+            🧮 Order Calculator
           </div>
-        </a>
+        </Link>
 
-        <a
-          href="/announcements"
-          style={{ textDecoration: "none", color: "white" }}
-        >
+        <Link href="/order" style={{ textDecoration: "none" }}>
+          <div
+            style={{
+              background: "#FFC8E2",
+              padding: "20px",
+              borderRadius: "25px",
+              color: "black",
+            }}
+          >
+            🛒 Place Order
+          </div>
+        </Link>
+
+        <Link href="/announcements" style={{ textDecoration: "none" }}>
           <div
             style={{
               background: "#FF4F9F",
-              padding: "25px",
+              padding: "20px",
               borderRadius: "25px",
               color: "white",
             }}
           >
-            <h2>💌 Announcements</h2>
-            <p>Latest shipping and batch updates.</p>
+            📢 Announcements
           </div>
-        </a>
+        </Link>
+      </div>
+
+      {/* Featured Products */}
+      <h2
+        style={{
+          color: "#FF4F9F",
+          marginBottom: "20px",
+        }}
+      >
+        ⭐ Featured Products
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gap: "15px",
+          marginBottom: "40px",
+        }}
+      >
+        <div
+          style={{
+            background: "#FFD6EB",
+            padding: "20px",
+            borderRadius: "25px",
+          }}
+        >
+          💗 TR30
+          <br />
+          Tirzepatide 30mg
+        </div>
+
+        <div
+          style={{
+            background: "#FFF0C7",
+            padding: "20px",
+            borderRadius: "25px",
+          }}
+        >
+          🍋 Lemon Bottle 50ml
+        </div>
+
+        <div
+          style={{
+            background: "#DDBBFF",
+            padding: "20px",
+            borderRadius: "25px",
+          }}
+        >
+          💙 GHK-Cu 100
+        </div>
+
+        <div
+          style={{
+            background: "#FFD6EB",
+            padding: "20px",
+            borderRadius: "25px",
+          }}
+        >
+          ✨ GTT1500
+        </div>
+      </div>
+
+      {/* Updates */}
+      <h2
+        style={{
+          color: "#FF4F9F",
+          marginBottom: "20px",
+        }}
+      >
+        📢 Latest Updates
+      </h2>
+
+      <div
+        style={{
+          background: "white",
+          padding: "25px",
+          borderRadius: "25px",
+        }}
+      >
+        <p>📢 Batch 1 closes June 21</p>
+        <p>📦 TR30 Kit #1 completed</p>
+        <p>🚚 Shipment ETA June 28</p>
+        <p>✨ Unlimited kits available</p>
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "50px",
+          color: "#7A4D7C",
+        }}
+      >
+        <h3>🎀 Peptiéra</h3>
+        <p>Fresh • Potent • Trusted</p>
+        <p>© 2026 Peptiéra</p>
       </div>
     </main>
   );
