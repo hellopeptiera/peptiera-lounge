@@ -1,5 +1,87 @@
+"use client";
+
+import { useState } from "react";
+
 export default function OrderPage() {
-  return (
+  const [fullName, setFullName] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [platform, setPlatform] = useState("Telegram");
+  const [otherPlatform, setOtherPlatform] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+
+  const [category, setCategory] = useState("Weight Management");
+  const [product, setProduct] = useState("");
+  const [quantity, setQuantity] = useState(1);
+
+  const [shipping, setShipping] = useState("J&T Express");
+  const [notes, setNotes] = useState("");
+
+  const [cart, setCart] = useState<any[]>([]);
+
+  const products = [
+    {
+      category: "Weight Management",
+      code: "TR15",
+      name: "Tirzepatide 15mg",
+      price: 429,
+    },
+    {
+      category: "Weight Management",
+      code: "TR30",
+      name: "Tirzepatide 30mg",
+      price: 605,
+    },
+    {
+      category: "Weight Management",
+      code: "RT15",
+      name: "Retatrutide 15mg",
+      price: 693,
+    },
+    {
+      category: "Skin & Beauty",
+      code: "CU100",
+      name: "GHK-Cu 100mg",
+      price: 284,
+    },
+    {
+      category: "Skin & Beauty",
+      code: "GTT1500",
+      name: "Glutathione 1500mg",
+      price: 448,
+    },
+    {
+      category: "Lemon Bottle",
+      code: "LB50",
+      name: "Lemon Bottle 50ml",
+      price: 850,
+    },
+  ];
+
+  function addToCart() {
+    const selected = products.find(
+      (p) => p.code === product
+    );
+
+    if (!selected) return;
+
+    setCart([
+      ...cart,
+      {
+        ...selected,
+        quantity,
+        total: selected.price * quantity,
+      },
+    ]);
+  }
+
+  const subtotal = cart.reduce(
+    (sum, item) => sum + item.total,
+    0
+  );
+
+  const total = subtotal + 300;
+    return (
     <main
       style={{
         minHeight: "100vh",
@@ -30,103 +112,253 @@ export default function OrderPage() {
 
       <div
         style={{
-          background: "#FFD6EB",
-          padding: "25px",
-          borderRadius: "25px",
-          maxWidth: "500px",
-          margin: "auto",
+          background: "#F7D9E8",
+          padding: "30px",
+          borderRadius: "30px",
+          marginBottom: "30px",
         }}
       >
         <h2>Customer Information</h2>
 
-        <p>Name</p>
         <input
-          placeholder="Enter your name"
-          style={{
-            width: "100%",
-            padding: "15px",
-            borderRadius: "15px",
-            border: "none",
-            marginBottom: "20px",
-          }}
+          placeholder="Full Name"
+          value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
+          style={inputStyle}
         />
 
-        <p>Telegram Username</p>
         <input
-          placeholder="@username"
-          style={{
-            width: "100%",
-            padding: "15px",
-            borderRadius: "15px",
-            border: "none",
-            marginBottom: "20px",
-          }}
+          placeholder="Nickname"
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+          style={inputStyle}
         />
 
-        <p>Product</p>
         <select
-          style={{
-            width: "100%",
-            padding: "15px",
-            borderRadius: "15px",
-            border: "none",
-            marginBottom: "20px",
-          }}
+          value={platform}
+          onChange={(e) => setPlatform(e.target.value)}
+          style={inputStyle}
         >
-          <option>TR15</option>
-          <option>TR30</option>
-          <option>GHK-Cu 100</option>
-          <option>GTT1500</option>
-          <option>Lemon Bottle 50ml</option>
+          <option>Telegram</option>
+          <option>Discord</option>
+          <option>Others</option>
         </select>
 
-        <p>Quantity</p>
+        {platform === "Others" && (
+          <input
+            placeholder="Specify Platform"
+            value={otherPlatform}
+            onChange={(e) => setOtherPlatform(e.target.value)}
+            style={inputStyle}
+          />
+        )}
+
         <input
-          type="number"
-          placeholder="Minimum 2"
-          style={{
-            width: "100%",
-            padding: "15px",
-            borderRadius: "15px",
-            border: "none",
-            marginBottom: "30px",
-          }}
+          placeholder="Phone Number"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          style={inputStyle}
         />
 
-        <button
-          style={{
-            background: "#FF4F9F",
-            color: "white",
-            width: "100%",
-            padding: "18px",
-            borderRadius: "20px",
-            border: "none",
-            fontSize: "18px",
-          }}
-        >
-          Submit Order 🎀
-        </button>
+        <input
+          placeholder="Shipping Address"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          style={inputStyle}
+        />
       </div>
 
       <div
         style={{
-          background: "#E6D5FF",
-          padding: "25px",
-          borderRadius: "25px",
-          maxWidth: "500px",
-          margin: "30px auto",
+          background: "#E9D9FF",
+          padding: "30px",
+          borderRadius: "30px",
+          marginBottom: "30px",
         }}
       >
-        <h2>📦 Batch Rules</h2>
+        <h2>🛍 Add Products</h2>
 
-        <p>✨ Minimum order: 2 vials per product.</p>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          style={inputStyle}
+        >
+          <option>Weight Management</option>
+          <option>Skin & Beauty</option>
+          <option>Lemon Bottle</option>
+        </select>
 
-        <p>📦 Products are processed once 10 vials (1 kit) are completed.</p>
+        <select
+          value={product}
+          onChange={(e) => setProduct(e.target.value)}
+          style={inputStyle}
+        >
+          <option value="">Select Product</option>
 
-        <p>🔄 Unlimited kits available.</p>
+          {products
+            .filter((p) => p.category === category)
+            .map((p) => (
+              <option key={p.code} value={p.code}>
+                {p.code} - {p.name}
+              </option>
+            ))}
+        </select>
 
-        <p>⏳ Batch 1 closes June 21.</p>
+        <input
+          type="number"
+          value={quantity}
+          onChange={(e) =>
+            setQuantity(Number(e.target.value))
+          }
+          style={inputStyle}
+        />
+
+        <button
+          onClick={addToCart}
+          style={{
+            background: "#FF4F9F",
+            color: "white",
+            border: "none",
+            borderRadius: "20px",
+            padding: "18px",
+            width: "100%",
+            fontSize: "20px",
+            cursor: "pointer",
+          }}
+        >
+          🛒 Add To Cart
+        </button>
       </div>
+            <div
+        style={{
+          background: "#FFE7F2",
+          padding: "30px",
+          borderRadius: "30px",
+          marginBottom: "30px",
+        }}
+      >
+        <h2>💗 Order Cart</h2>
+
+        {cart.length === 0 && (
+          <p>No items added yet.</p>
+        )}
+
+        {cart.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              background: "white",
+              padding: "20px",
+              borderRadius: "20px",
+              marginBottom: "15px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <div>
+                <strong>{item.code}</strong>
+              </div>
+
+              <div>{item.name}</div>
+
+              <div>
+                Qty: {item.quantity}
+              </div>
+
+              <div>
+                ₱{item.total}
+              </div>
+            </div>
+
+            <button
+              onClick={() =>
+                setCart(
+                  cart.filter((_, i) => i !== index)
+                )
+              }
+              style={{
+                background: "#FF4F9F",
+                color: "white",
+                border: "none",
+                borderRadius: "15px",
+                padding: "10px 15px",
+                cursor: "pointer",
+              }}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+
+        <hr />
+
+        <h3>Order Summary</h3>
+
+        <p>Subtotal: ₱{subtotal}</p>
+
+        <p>Admin Fee: ₱300</p>
+
+        <h2>Total: ₱{total}</h2>
+      </div>
+
+      <div
+        style={{
+          background: "#E9F3FF",
+          padding: "30px",
+          borderRadius: "30px",
+          marginBottom: "30px",
+        }}
+      >
+        <h2>📦 Shipping Method</h2>
+
+        <select
+          value={shipping}
+          onChange={(e) => setShipping(e.target.value)}
+          style={inputStyle}
+        >
+          <option>J&T Express</option>
+          <option>Lalamove</option>
+          <option>Grab Express</option>
+          <option>Pickup</option>
+        </select>
+
+        <textarea
+          placeholder="Additional notes (optional)"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          style={{
+            ...inputStyle,
+            minHeight: "120px",
+          }}
+        />
+      </div>
+
+      <button
+        style={{
+          background: "#FF4F9F",
+          color: "white",
+          border: "none",
+          width: "100%",
+          padding: "25px",
+          borderRadius: "25px",
+          fontSize: "22px",
+          cursor: "pointer",
+        }}
+      >
+        💗 Submit Order
+      </button>
     </main>
   );
 }
+
+const inputStyle = {
+  width: "100%",
+  padding: "18px",
+  marginTop: "15px",
+  marginBottom: "20px",
+  borderRadius: "20px",
+  border: "none",
+  fontSize: "16px",
+};
