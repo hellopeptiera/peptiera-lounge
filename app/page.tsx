@@ -35,42 +35,74 @@ export default function Home() {
           Private members-only wellness and group buy platform ✨
         </p>
 
-        <div
-          style={{
-            background: "#FFD3E8",
-            padding: "25px",
-            borderRadius: "25px",
-            marginBottom: "20px",
-          }}
+        <a
+          href="/products"
+          style={{ textDecoration: "none", color: "black" }}
         >
-          <h2>🛍 Products</h2>
-          <p>Browse available products and upcoming batches.</p>
-        </div>
+          <div
+            style={{
+              background: "#FFD3E8",
+              padding: "25px",
+              borderRadius: "25px",
+              marginBottom: "20px",
+            }}
+          >
+            <h2>🛍 Products</h2>
+            <p>Browse available products and upcoming batches.</p>
+          </div>
+        </a>
 
-        <div
-          style={{
-            background: "#D8B4FF",
-            padding: "25px",
-            borderRadius: "25px",
-            marginBottom: "20px",
-            color: "white",
-          }}
+        <a
+          href="/tracker"
+          style={{ textDecoration: "none", color: "white" }}
         >
-          <h2>📦 Order Tracker</h2>
-          <p>Track your orders and shipment updates.</p>
-        </div>
+          <div
+            style={{
+              background: "#D8B4FF",
+              padding: "25px",
+              borderRadius: "25px",
+              marginBottom: "20px",
+              color: "white",
+            }}
+          >
+            <h2>📦 Order Tracker</h2>
+            <p>Track your orders and shipment updates.</p>
+          </div>
+        </a>
 
-        <div
-          style={{
-            background: "#FF4F9F",
-            padding: "25px",
-            borderRadius: "25px",
-            color: "white",
-          }}
+        <a
+          href="/calculator"
+          style={{ textDecoration: "none", color: "black" }}
         >
-          <h2>💌 Announcements</h2>
-          <p>Latest shipping and batch updates.</p>
-        </div>
+          <div
+            style={{
+              background: "#FFE5F1",
+              padding: "25px",
+              borderRadius: "25px",
+              marginBottom: "20px",
+            }}
+          >
+            <h2>🧮 Order Calculator</h2>
+            <p>Calculate your order total, weight, and shipping ✨</p>
+          </div>
+        </a>
+
+        <a
+          href="/announcements"
+          style={{ textDecoration: "none", color: "white" }}
+        >
+          <div
+            style={{
+              background: "#FF4F9F",
+              padding: "25px",
+              borderRadius: "25px",
+              color: "white",
+            }}
+          >
+            <h2>💌 Announcements</h2>
+            <p>Latest shipping and batch updates.</p>
+          </div>
+        </a>
       </div>
     </main>
   );
