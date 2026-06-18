@@ -1,46 +1,120 @@
-import Link from "next/link";
+:root {
+  --background: #F0D9E4;
+  --foreground: #16131F;
 
-export default function Sidebar() {
-  return (
-    <div
-      style={{
-        width: "240px",
-        background: "#FFF7FA",
-        padding: "30px 20px",
-        borderRight: "1px solid #F5D6E6",
-        minHeight: "100vh",
-      }}
-    >
-      <h1
-        style={{
-          color: "#FF69B4",
-          marginBottom: "40px",
-        }}
-      >
-        🎀 Peptiéra
-      </h1>
+  --card: #FDF9FB;
+  --card-hover: #F6ECF3;
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-        }}
-      >
-        <Link href="/">🏠 Dashboard</Link>
+  --primary: #6D2DB8;
+  --primary-light: #B98AD8;
 
-        <Link href="/products">🛍 Products</Link>
+  --accent: #C1A0AC;
+  --muted: #806C79;
 
-        <Link href="/pricelist">💗 Price List</Link>
+  --border: #E8DDE4;
 
-        <Link href="/tracker">📦 Order Tracker</Link>
+  --shadow: rgba(74, 63, 75, 0.08);
+}
 
-        <Link href="/order">🛒 Place Order</Link>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        <Link href="/calculator">🧮 Calculator</Link>
-
-        <Link href="/announcements">📢 Announcements</Link>
-      </div>
-    </div>
+html,
+body {
+  background: linear-gradient(
+    to bottom,
+    #FDF9FB,
+    #F5E9F0
   );
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  padding: 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+p {
+  color: var(--muted);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: white;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary-light);
+}
+
+.card {
+  background: var(--card);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 24px var(--shadow);
+  transition: .2s;
+}
+
+.card:hover {
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  margin-bottom: 16px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.badge {
+  background: #EEE2F7;
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
 }
