@@ -8,94 +8,92 @@ export default function LibraryPage() {
   const sections = [
     {
       title: "📦 How Group Buy Works",
-      content: [
+      items: [
         "Products are ordered by kit and must reach MOQ.",
         "International shipping is shared among members.",
-        "An admin fee is required to secure your slot.",
         "Tracking updates will be posted regularly.",
       ],
     },
     {
       title: "🛒 How to Order",
-      content: [
+      items: [
         "Browse the price list.",
         "Use the calculator to estimate totals.",
         "Submit your order form.",
-        "Wait for invoice and payment instructions.",
+        "Wait for payment instructions.",
       ],
     },
     {
       title: "💳 Payment Methods",
-      content: [
-        "Payment details will be provided after order confirmation.",
-        "Send proof of payment after completing your transaction.",
+      items: [
+        "Payment details are provided after confirmation.",
+        "Please send proof of payment.",
+        "Admin fees are non-refundable under any circumstances.",
       ],
     },
     {
-      title: "💉 Reconstitution Guide",
-      content: [
-        "Use bacteriostatic water.",
-        "Inject slowly into the vial.",
-        "Swirl gently, do not shake.",
-        "Store reconstituted products at 2-8°C.",
-      ],
-    },
-    {
-      title: "📦 Shipping Process",
-      content: [
+      title: "🚚 Shipping Process",
+      items: [
         "International shipping is shared based on weight.",
-        "Local shipping will be arranged once items arrive.",
+        "Local shipping is charged separately.",
         "Tracking numbers will be provided when available.",
       ],
     },
     {
-      title: "❓ FAQ",
-      content: [
-        "Q: Is the admin fee refundable?",
-        "A: No. Admin fee is non-refundable under any circumstances.",
-        "",
-        "Q: Can I cancel my order?",
-        "A: Orders cannot be cancelled once submitted to the manufacturer.",
+      title: "❓ Frequently Asked Questions",
+      items: [
+        "What happens if MOQ is not reached?",
+        "How long does shipping take?",
+        "Can I cancel my order?",
+        "Are admin fees refundable?",
       ],
     },
     {
       title: "📜 Rules & Regulations",
-      content: [
-        "Respect all members.",
-        "No spamming.",
-        "No refund for admin fees.",
-        "Orders are final once submitted.",
+      items: [
+        "Orders are MOQ based.",
+        "Admin fees are non-refundable.",
+        "Orders cannot be cancelled once submitted.",
       ],
     },
   ];
 
   return (
-    <div style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
+    <div
+      style={{
+        maxWidth: "900px",
+        margin: "auto",
+        padding: "32px",
+      }}
+    >
       <h1>📚 Peptiéra Library</h1>
-      <p>Guides, FAQs and important information.</p>
 
       {sections.map((section, index) => (
         <div
           key={index}
           style={{
-            border: "1px solid #eee",
-            borderRadius: "16px",
-            padding: "16px",
-            marginBottom: "16px",
-            background: "#fff",
+            background: "#FFFFFF",
+            border: "1px solid #C1A0AC",
+            borderRadius: "24px",
+            padding: "20px",
+            marginTop: "20px",
           }}
         >
           <h2
-            style={{ cursor: "pointer" }}
-            onClick={() => setOpen(open === index ? null : index)}
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() =>
+              setOpen(open === index ? null : index)
+            }
           >
             {section.title} {open === index ? "▲" : "▼"}
           </h2>
 
           {open === index && (
-            <ul>
-              {section.content.map((item, i) => (
-                <li key={i} style={{ marginBottom: "8px" }}>
+            <ul style={{ marginTop: "16px" }}>
+              {section.items.map((item, i) => (
+                <li key={i} style={{ marginBottom: "10px" }}>
                   {item}
                 </li>
               ))}
