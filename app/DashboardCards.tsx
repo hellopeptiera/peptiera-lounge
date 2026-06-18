@@ -21,10 +21,10 @@ export default function DashboardCards() {
       href: "/pricelist",
     },
     {
-      emoji: "🧮",
-      title: "Dosage Calculator",
-      subtitle: "Calculate dosage",
-      href: "/calculator",
+      emoji: "🌸",
+      title: "Product Calculator",
+description: "Estimate products, shipping & total",
+icon: "📦",
     },
     {
       emoji: "🛒",
