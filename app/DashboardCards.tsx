@@ -21,10 +21,10 @@ export default function DashboardCards() {
       href: "/pricelist",
     },
     {
-      emoji: "🌸",
-      title: "Product Calculator",
-description: "Estimate products, shipping & total",
-icon: "📦",
+  emoji: "📦",
+  title: "🎀 Product Calculator",
+  subtitle: "Estimate products, shipping & total",
+  href: "/calculator",
     },
     {
       emoji: "🛒",
