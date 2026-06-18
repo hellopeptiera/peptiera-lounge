@@ -1,94 +1,84 @@
 export default function HeroBanner() {
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(135deg, #F8EEF5 0%, #EEE2F7 100%)",
-        borderRadius: "32px",
-        padding: "40px",
-        marginBottom: "30px",
-        boxShadow: "0 8px 24px rgba(0,0,0,.08)",
-      }}
-    >
-      <div
+    <div style={{ marginBottom: "30px" }}>
+      <p
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: "30px",
-          flexWrap: "wrap",
+          color: "#806C79",
+          fontSize: "14px",
         }}
       >
-        <div>
-          <div
-            style={{
-              background: "#FFFFFF",
-              color: "#6D2DB8",
-              width: "fit-content",
-              padding: "8px 18px",
-              borderRadius: "999px",
-              marginBottom: "20px",
-            }}
-          >
-            ✨ Welcome to Peptiéra Lounge
-          </div>
-          <h1
-            style={{
-              color: "#16131F",
-              fontSize: "3rem",
-              marginBottom: "15px",
-            }}
-          >
-            Welcome back ♡
-          </h1>
-          <p
-            style={{
-              color: "#806C79",
-              maxWidth: "500px",
-              lineHeight: "1.8",
-            }}
-          >
-            Manage orders, calculate dosages,
-            track shipments and access educational
-            resources all in one place.
-          </p>
-        </div>
-        <div
-          style={{
-            background: "#FFFFFF",
-            borderRadius: "28px",
-            padding: "24px",
-            minWidth: "260px",
-            boxShadow: "0 8px 20px rgba(0,0,0,.05)",
-          }}
-        >
+        Welcome back,
+      </p>
+
+      <h1
+        style={{
+          color: "#16131F",
+          fontSize: "42px",
+          marginBottom: "8px",
+        }}
+      >
+        Tammy ♡
+      </h1>
+
+      <p
+        style={{
+          color: "#806C79",
+          marginBottom: "30px",
+        }}
+      >
+        Thank you for being part of Peptiéra.
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+          gap: "20px",
+        }}
+      >
+        <div className="card">
+          <p>Batch Status</p>
+
           <h2
             style={{
               color: "#6D2DB8",
-              marginBottom: "20px",
-            }}
-          >
-            📦 Batch Status
-          </h2>
-          <p>🟢 Batch Open</p>
-          <p
-            style={{
               marginTop: "10px",
             }}
           >
-            ⏰ Closes in 5 days
-          </p>
-          <hr />
+            Open
+          </h2>
+
+          <p>Closes in 5 days</p>
+        </div>
+
+        <div className="card">
+          <p>My Orders</p>
+
           <h2
             style={{
               color: "#6D2DB8",
-              marginBottom: "15px",
+              marginTop: "10px",
             }}
           >
-            📈 Quick Stats
+            0
           </h2>
-          <p>Orders: 0</p>
-          <p>Outstanding Balance: ₱0</p>
-          <p>Shipping Updates: None</p>
+
+          <p>Active orders</p>
+        </div>
+
+        <div className="card">
+          <p>Outstanding Balance</p>
+
+          <h2
+            style={{
+              color: "#6D2DB8",
+              marginTop: "10px",
+            }}
+          >
+            ₱0
+          </h2>
+
+          <p>No balance due.</p>
         </div>
       </div>
     </div>
