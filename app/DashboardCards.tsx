@@ -1,111 +1,183 @@
-import Link from "next/link";
+:root {
+  --background: #F0D9E4;
+  --foreground: #16131F;
 
-export default function DashboardCards() {
-  const cards = [
-    {
-      emoji: "📚",
-      title: "Library",
-      subtitle: "Guides, FAQs & Resources",
-      href: "/library",
-    },
-    {
-      emoji: "📢",
-      title: "Announcements",
-      subtitle: "Latest updates",
-      href: "/announcements",
-    },
-    {
-      emoji: "🧬",
-      title: "Peptide Encyclopedia",
-      subtitle: "Learn about peptides",
-      href: "/encyclopedia",
-    },
-    {
-      emoji: "💗",
-      title: "Price List",
-      subtitle: "Latest prices",
-      href: "/pricelist",
-    },
-    {
-      emoji: "📦",
-      title: "Products",
-      subtitle: "Browse available products",
-      href: "/products",
-    },
-    {
-      emoji: "🛒",
-      title: "Place Order",
-      subtitle: "Submit your order",
-      href: "/order",
-    },
-    {
-      emoji: "🎀",
-      title: "Product Calculator",
-      subtitle: "Estimate products, shipping & total",
-      href: "/calculator",
-    },
-    {
-      emoji: "💉",
-      title: "Dosage Calculator",
-      subtitle: "Calculate BAC water & units",
-      href: "/dosage",
-    },
-    {
-      emoji: "📦",
-      title: "Order Tracker",
-      subtitle: "Track your orders",
-      href: "/tracker",
-    },
-    {
-      emoji: "📈",
-      title: "Progress Tracker",
-      subtitle: "Track your journey",
-      href: "/progress",
-    },
-    {
-      emoji: "👤",
-      title: "Account",
-      subtitle: "Manage your profile",
-      href: "/account",
-    },
-  ];
+  --primary: #290087;
+  --secondary: #C1A0AC;
+  --accent: #CAC5E5;
 
-  return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "20px",
-      }}
-    >
-      {cards.map((card) => (
-        <Link
-          key={card.title}
-          href={card.href}
-          style={{
-            textDecoration: "none",
-            color: "inherit",
-          }}
-        >
-          <div
-            style={{
-              background: "#fff",
-              borderRadius: "24px",
-              padding: "24px",
-              minHeight: "180px",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-            }}
-          >
-            <div style={{ fontSize: "36px" }}>{card.emoji}</div>
+  --card: #FFFFFF;
+  --border: #C1A0AC;
+}
 
-            <h2>{card.title}</h2>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-            <p style={{ color: "#777" }}>
-              {card.subtitle}
-            </p>
-          </div>
-        </Link>
-      ))}
-    </div>
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: var(--primary);
+  color: #F6FFE9;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  background: white;
+  color: var(--foreground);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar {
+  background: #16131F;
+  color: #F0D9E4;
+  min-height: 100vh;
+  padding: 24px;
+  border-right: 1px solid #4A3F4B;
+}
+
+.sidebar a {
+  display: block;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #4A3F4B;
+}
+
+.sidebar .active {
+  background: #290087;
+  color: #F6FFE9;
+  font-weight: 600;
+}
+
+.sidebar-title {
+  color: #F6FFE9;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.sidebar-section {
+  color: #C1A0AC;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #16131F;
+}
+
+p {
+  color: #4A3F4B;
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 32px;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.badge {
+  background: #CAC5E5;
+  color: #290087;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    #F0D9E4,
+    #CAC5E5
   );
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.table {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #C1A0AC;
+}
+
+.table th {
+  background: #CAC5E5;
+  color: #16131F;
+}
+
+.table td,
+.table th {
+  padding: 16px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0D9E4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C1A0AC;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #806C79;
 }
