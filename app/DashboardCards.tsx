@@ -27,13 +27,13 @@ export default function DashboardCards() {
       href: "/pricelist",
     },
     {
-      emoji: "🛍️",
+      emoji: "📦",
       title: "Products",
       subtitle: "Browse available products",
       href: "/products",
     },
     {
-      emoji: "📝",
+      emoji: "🛒",
       title: "Place Order",
       subtitle: "Submit your order",
       href: "/order",
@@ -61,12 +61,6 @@ export default function DashboardCards() {
       title: "Progress Tracker",
       subtitle: "Track your journey",
       href: "/progress",
-    },
-    {
-      emoji: "🚚",
-      title: "Shipping Updates",
-      subtitle: "International shipment updates",
-      href: "/shipping",
     },
     {
       emoji: "👤",
@@ -114,21 +108,4 @@ export default function DashboardCards() {
       ))}
     </div>
   );
-}    title: "Progress Tracker",
-    subtitle: "Track your journey",
-    href: "/progress",
-  },
-  {
-    emoji: "🚚",
-    title: "Shipping Updates",
-    subtitle: "International shipment updates",
-    href: "/shipping",
-  },
-  {
-    emoji: "👤",
-    title: "Account",
-    subtitle: "Manage your profile",
-    href: "/account",
-  },
-];
 }
