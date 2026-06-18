@@ -1,4 +1,38 @@
-export default function ProgressPage() {
+export default function AnnouncementsPage() {
+  const announcements = [
+    {
+      title: "📢 Batch Opening",
+      message: "Batch 2 is now open for orders.",
+    },
+    {
+      title: "⏰ Batch Deadline",
+      message: "Orders will close in 2 days.",
+    },
+    {
+      title: "📦 Shipping Update",
+      message: "International shipment is currently in transit.",
+    },
+    {
+      title: "🛬 Shipment Arrived",
+      message: "Current shipment has arrived in the Philippines.",
+    },
+    {
+      title: "🚚 Local Shipping",
+      message: "Local shipping has officially started.",
+    },
+    {
+      title: "🧬 New Product Added",
+      message: "New products have been added to the catalog.",
+    },
+    {
+      title: "💗 MOQ Reached",
+      message: "Tirzepatide 30mg has reached MOQ and will proceed to ordering.",
+    },
+    {
+      title: "⚠️ Important Notice",
+      message: "Pharma BAC water will not be available for this batch.",
+    },
+  ];
   return (
     <div
       style={{
@@ -7,69 +41,37 @@ export default function ProgressPage() {
         padding: "32px",
       }}
     >
-      <h1>📈 Progress Tracker</h1>
-
+      <h1>📢 Announcements</h1>
       <div
         style={{
-          background: "#fff",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
+          display: "grid",
+          gap: "20px",
+          marginTop: "30px",
         }}
       >
-        <h2>⚖️ Weight Progress</h2>
-
-        <p>Starting Weight: —</p>
-        <p>Current Weight: —</p>
-        <p>Goal Weight: —</p>
-        <p>Total Weight Lost: —</p>
-      </div>
-
-      <div
-        style={{
-          background: "#fff",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
-        }}
-      >
-        <h2>📏 Measurements</h2>
-
-        <p>Waist: —</p>
-        <p>Hips: —</p>
-        <p>Bust: —</p>
-        <p>Thigh: —</p>
-      </div>
-
-      <div
-        style={{
-          background: "#fff",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
-        }}
-      >
-        <h2>📸 Progress Photos</h2>
-
-        <p>Coming Soon</p>
-      </div>
-
-      <div
-        style={{
-          background: "#fff",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
-        }}
-      >
-        <h2>🎯 Goals</h2>
-
-        <p>Weekly Goal: —</p>
-        <p>Monthly Goal: —</p>
+        {announcements.map((announcement) => (
+          <div
+            key={announcement.title}
+            style={{
+              background: "#FFFFFF",
+              border: "1px solid #C1A0AC",
+              borderRadius: "24px",
+              padding: "24px",
+              boxShadow: "0 8px 20px rgba(0,0,0,.08)",
+            }}
+          >
+            <h2>{announcement.title}</h2>
+            <p
+              style={{
+                marginTop: "12px",
+                color: "#4A3F4B",
+                lineHeight: "1.8",
+              }}
+            >
+              {announcement.message}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
