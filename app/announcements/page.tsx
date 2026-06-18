@@ -1,58 +1,76 @@
-export default function AnnouncementsPage() {
+export default function ProgressPage() {
   return (
-    <main
+    <div
       style={{
-        minHeight: "100vh",
-        background: "#FFF8FB",
-        padding: "30px",
-        fontFamily: "Arial",
+        maxWidth: "1000px",
+        margin: "auto",
+        padding: "32px",
       }}
     >
-      <h1
-        style={{
-          textAlign: "center",
-          color: "#FF4F9F",
-          fontSize: "2.5rem",
-        }}
-      >
-        📢 Announcements
-      </h1>
+      <h1>📈 Progress Tracker</h1>
 
       <div
         style={{
-          background: "#FFD6EB",
-          padding: "25px",
-          borderRadius: "25px",
-          marginBottom: "20px",
+          background: "#fff",
+          border: "1px solid #C1A0AC",
+          borderRadius: "24px",
+          padding: "24px",
+          marginTop: "24px",
         }}
       >
-        <h2>📢 Batch 1 closes June 21</h2>
-        <p>Order taking is open until June 21, 11:59 PM.</p>
+        <h2>⚖️ Weight Progress</h2>
+
+        <p>Starting Weight: —</p>
+        <p>Current Weight: —</p>
+        <p>Goal Weight: —</p>
+        <p>Total Weight Lost: —</p>
       </div>
 
       <div
         style={{
-          background: "#E6D5FF",
-          padding: "25px",
-          borderRadius: "25px",
-          marginBottom: "20px",
+          background: "#fff",
+          border: "1px solid #C1A0AC",
+          borderRadius: "24px",
+          padding: "24px",
+          marginTop: "24px",
         }}
       >
-        <h2>📦 Kit Progress Updates</h2>
-        <p>TR30 Kit #1 completed.</p>
-        <p>Lemon Bottle Kit #2 completed.</p>
+        <h2>📏 Measurements</h2>
+
+        <p>Waist: —</p>
+        <p>Hips: —</p>
+        <p>Bust: —</p>
+        <p>Thigh: —</p>
       </div>
 
       <div
         style={{
-          background: "#FFF0C7",
-          padding: "25px",
-          borderRadius: "25px",
+          background: "#fff",
+          border: "1px solid #C1A0AC",
+          borderRadius: "24px",
+          padding: "24px",
+          marginTop: "24px",
         }}
       >
-        <h2>🚚 Shipping Updates</h2>
-        <p>International shipment is currently in transit.</p>
+        <h2>📸 Progress Photos</h2>
+
+        <p>Coming Soon</p>
       </div>
-    </main>
+
+      <div
+        style={{
+          background: "#fff",
+          border: "1px solid #C1A0AC",
+          borderRadius: "24px",
+          padding: "24px",
+          marginTop: "24px",
+        }}
+      >
+        <h2>🎯 Goals</h2>
+
+        <p>Weekly Goal: —</p>
+        <p>Monthly Goal: —</p>
+      </div>
+    </div>
   );
 }
