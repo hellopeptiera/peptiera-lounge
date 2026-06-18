@@ -3,21 +3,53 @@
 import { useState } from "react";
 
 export default function CalculatorPage() {
-  const [productTotal, setProductTotal] = useState(4004);
-  const [weight, setWeight] = useState(0.16);
+  const products = [
+    { code: "TR15", price: 429, weight: 0.1 },
+    { code: "TR30", price: 605, weight: 0.1 },
+    { code: "CU100", price: 284, weight: 0.1 },
+    { code: "GTT1500", price: 448, weight: 0.25 },
+    { code: "BA3", price: 57, weight: 0.01 },
+    { code: "BA10", price: 70, weight: 0.02 },
+    { code: "LC600", price: 448, weight: 0.03 },
+    { code: "50AM", price: 693, weight: 0.01 },
+  ];
 
-  // Admin settings
+  const [items, setItems] = useState([
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+    { code: "", quantity: 0 },
+  ]);
+
   const usdRate = 63;
   const members = 10;
-  const totalShipmentWeight = 2.0;
+  const totalShipmentWeight = 2;
   const firstHalfKgCost = 50;
   const extraHalfKgCost = 10;
 
-  // First 0.5kg shared equally
+  let productTotal = 0;
+  let totalWeight = 0;
+
+  items.forEach((item) => {
+    const product = products.find(
+      (p) => p.code === item.code
+    );
+
+    if (product) {
+      productTotal += product.price * item.quantity;
+      totalWeight += product.weight * item.quantity;
+    }
+  });
+
   const baseShipping =
     (firstHalfKgCost * usdRate) / members;
 
-  // Additional shipping
   const extraWeight = Math.max(
     totalShipmentWeight - 0.5,
     0
@@ -28,32 +60,28 @@ export default function CalculatorPage() {
   const extraShippingPHP =
     extraBlocks * extraHalfKgCost * usdRate;
 
-  const weightPercentage =
-    weight / totalShipmentWeight;
-
   const additionalShare =
-    extraShippingPHP * weightPercentage;
+    (totalWeight / totalShipmentWeight) *
+    extraShippingPHP;
 
   const estimatedShipping =
     baseShipping + additionalShare;
 
   const grandTotal =
     productTotal + estimatedShipping;
-
-  return (
+    return (
     <main
       style={{
         background: "#FFF8FB",
         minHeight: "100vh",
         padding: "30px",
-        fontFamily: "Arial",
       }}
     >
       <h1
         style={{
           color: "#FF5CA8",
           textAlign: "center",
-          fontSize: "40px",
+          marginBottom: "30px",
         }}
       >
         🎀 Peptiéra Order Calculator
@@ -62,89 +90,93 @@ export default function CalculatorPage() {
       <div
         style={{
           background: "white",
-          padding: "30px",
-          borderRadius: "30px",
-          marginTop: "30px",
+          padding: "25px",
+          borderRadius: "25px",
         }}
       >
-        <h2>📦 Order Details</h2>
+        <h2>📦 Items</h2>
 
-        <p>Product Total</p>
+        {items.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              marginBottom: "20px",
+              borderBottom: "1px solid #EEE",
+              paddingBottom: "20px",
+            }}
+          >
+            <h3>Item {index + 1}</h3>
 
-        <input
-          type="number"
-          value={productTotal}
-          onChange={(e) =>
-            setProductTotal(Number(e.target.value))
-          }
-          style={inputStyle}
-        />
+            <select
+              value={item.code}
+              onChange={(e) => {
+                const newItems = [...items];
+                newItems[index].code =
+                  e.target.value;
+                setItems(newItems);
+              }}
+              style={inputStyle}
+            >
+              <option value="">
+                Select Product
+              </option>
 
-        <p>Total Weight (kg)</p>
+              {products.map((product) => (
+                <option
+                  key={product.code}
+                  value={product.code}
+                >
+                  {product.code}
+                </option>
+              ))}
+            </select>
 
-        <input
-          type="number"
-          step="0.01"
-          value={weight}
-          onChange={(e) =>
-            setWeight(Number(e.target.value))
-          }
-          style={inputStyle}
-        />
-
-      </div>
+            <input
+              type="number"
+              placeholder="Quantity"
+              value={
+                item.quantity === 0
+                  ? ""
+                  : item.quantity
+              }
+              onChange={(e) => {
+                const newItems = [...items];
+                newItems[index].quantity =
+                  Number(e.target.value);
+                setItems(newItems);
+              }}
+              style={inputStyle}
+            />
+          </div>
+        ))}
+              </div>
 
       <div
         style={{
-          background: "#FDE6F1",
-          padding: "30px",
-          borderRadius: "30px",
+          background: "#FFE4F1",
+          padding: "25px",
+          borderRadius: "25px",
           marginTop: "30px",
         }}
       >
-        <h2>🚢 Estimated International Shipping</h2>
+        <h2>🩷 Order Summary</h2>
 
         <div style={rowStyle}>
-          <span>Base Share</span>
-          <strong>
-            ₱{baseShipping.toFixed(2)}
-          </strong>
-        </div>
-
-        <div style={rowStyle}>
-          <span>Additional Weight Share</span>
-          <strong>
-            ₱{additionalShare.toFixed(2)}
-          </strong>
-        </div>
-
-        <div style={rowStyle}>
-          <span>Estimated Shipping</span>
-          <strong>
-            ₱{estimatedShipping.toFixed(2)}
-          </strong>
-        </div>
-      </div>
-
-      <div
-        style={{
-          background: "#EADFFF",
-          padding: "30px",
-          borderRadius: "30px",
-          marginTop: "30px",
-        }}
-      >
-        <h2>💗 Grand Total</h2>
-
-        <div style={rowStyle}>
-          <span>Products</span>
+          <span>Products Total</span>
           <strong>
             ₱{productTotal.toFixed(2)}
           </strong>
         </div>
 
         <div style={rowStyle}>
-          <span>Shipping</span>
+          <span>Total Weight</span>
+          <strong>
+            {totalWeight.toFixed(2)} kg
+          </strong>
+        </div>
+
+        <div style={rowStyle}>
+          <span>Estimated Shipping</span>
           <strong>
             ₱{estimatedShipping.toFixed(2)}
           </strong>
@@ -167,19 +199,29 @@ export default function CalculatorPage() {
             ₱{grandTotal.toFixed(2)}
           </span>
         </div>
+
+        <p
+          style={{
+            marginTop: "20px",
+            color: "#777",
+            fontSize: "14px",
+          }}
+        >
+          International shipping is estimated and
+          may change once shipment arrives.
+        </p>
       </div>
-          </main>
+    </main>
   );
 }
 
 const inputStyle = {
   width: "100%",
-  padding: "18px",
-  borderRadius: "20px",
-  border: "1px solid #FFD6E5",
-  fontSize: "18px",
-  marginBottom: "20px",
-  background: "white",
+  padding: "15px",
+  borderRadius: "15px",
+  border: "1px solid #FFD3E6",
+  marginTop: "10px",
+  fontSize: "16px",
 };
 
 const rowStyle = {
@@ -188,4 +230,3 @@ const rowStyle = {
   marginBottom: "15px",
   fontSize: "18px",
 };
-
