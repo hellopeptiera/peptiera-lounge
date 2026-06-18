@@ -3,80 +3,92 @@ export default function HeroBanner() {
     <div
       style={{
         background:
-          "linear-gradient(135deg, #F0D9E4 0%, #CAC5E5 100%)",
+          "linear-gradient(135deg,#F6ECF3,#EEE2F7)",
         borderRadius: "32px",
-        padding: "48px",
-        marginBottom: "32px",
-        boxShadow: "0 10px 30px rgba(0,0,0,.08)",
+        padding: "40px",
+        marginBottom: "30px",
+        boxShadow: "0 8px 24px rgba(0,0,0,.08)",
       }}
     >
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "16px",
+          justifyContent: "space-between",
+          gap: "30px",
+          flexWrap: "wrap",
         }}
       >
-        <div
-          style={{
-            background: "#F6FFE9",
-            color: "#290087",
-            width: "fit-content",
-            padding: "8px 16px",
-            borderRadius: "999px",
-            fontWeight: 600,
-            fontSize: "14px",
-          }}
-        >
-          ✨ Welcome to Peptiéra Lounge
-        </div>
-
-        <h1
-          style={{
-            fontSize: "48px",
-            fontWeight: 800,
-            color: "#16131F",
-            lineHeight: 1.1,
-          }}
-        >
-          Premium Wellness
-          <br />
-          Member Portal
-        </h1>
-
-        <p
-          style={{
-            color: "#4A3F4B",
-            fontSize: "18px",
-            lineHeight: 1.8,
-            maxWidth: "700px",
-          }}
-        >
-          Browse products, place orders, calculate totals,
-          track shipments, and access educational resources —
-          all in one place.
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            marginTop: "10px",
-          }}
-        >
-          <button>
-            🛍 Browse Products
-          </button>
-
-          <button
+        <div>
+          <div
             style={{
-              background: "#FFFFFF",
-              color: "#290087",
-              border: "1px solid #C1A0AC",
+              background: "#fff",
+              width: "fit-content",
+              padding: "8px 16px",
+              borderRadius: "999px",
+              color: "#6D2DB8",
+              marginBottom: "20px",
             }}
           >
-            📚 Explore Library
-          </button>
+            ✨ Welcome to Peptiéra Lounge
+          </div>
+          <h1
+            style={{
+              fontSize: "3rem",
+              color: "#16131F",
+              marginBottom: "10px",
+            }}
+          >
+            Welcome back ♡
+          </h1>
+          <p
+            style={{
+              color: "#806C79",
+              maxWidth: "500px",
+              lineHeight: "1.8",
+            }}
+          >
+            Manage your orders, calculate dosages,
+            track shipments and access educational
+            resources all in one place.
+          </p>
+        </div>
+        <div
+          style={{
+            background: "#fff",
+            borderRadius: "28px",
+            padding: "25px",
+            minWidth: "280px",
+            boxShadow: "0 8px 24px rgba(0,0,0,.05)",
+          }}
+        >
+          <h3
+            style={{
+              color: "#6D2DB8",
+              marginBottom: "20px",
+            }}
+          >
+            📦 Batch Status
+          </h3>
+          <p>🟢 Batch Open</p>
+          <p
+            style={{
+              marginTop: "12px",
+            }}
+          >
+            ⏰ Closes in 5 days
+          </p>
+          <hr />
+          <h3
+            style={{
+              color: "#6D2DB8",
+              marginBottom: "15px",
+            }}
+          >
+            📈 Quick Stats
+          </h3>
+          <p>Orders: 0</p>
+          <p>Outstanding Balance: ₱0</p>
+          <p>Shipping Updates: None</p>
         </div>
       </div>
     </div>
