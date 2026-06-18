@@ -2,96 +2,82 @@ export default function HeroBanner() {
   return (
     <div
       style={{
-        background: "#FFF1F7",
-        borderRadius: "30px",
-        padding: "40px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: "30px",
-        border: "1px solid #F8D7E8",
+        background:
+          "linear-gradient(135deg, #F0D9E4 0%, #CAC5E5 100%)",
+        borderRadius: "32px",
+        padding: "48px",
+        marginBottom: "32px",
+        boxShadow: "0 10px 30px rgba(0,0,0,.08)",
       }}
     >
-      <div>
-        <h1
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        <div
           style={{
-            color: "#333",
-            fontSize: "2.5rem",
-            marginBottom: "15px",
+            background: "#F6FFE9",
+            color: "#290087",
+            width: "fit-content",
+            padding: "8px 16px",
+            borderRadius: "999px",
+            fontWeight: 600,
+            fontSize: "14px",
           }}
         >
-          Welcome to Peptiéra Lounge 💗
+          ✨ Welcome to Peptiéra Lounge
+        </div>
+
+        <h1
+          style={{
+            fontSize: "48px",
+            fontWeight: 800,
+            color: "#16131F",
+            lineHeight: 1.1,
+          }}
+        >
+          Premium Wellness
+          <br />
+          Member Portal
         </h1>
 
         <p
           style={{
-            color: "#666",
-            fontSize: "1.1rem",
-            marginBottom: "25px",
+            color: "#4A3F4B",
+            fontSize: "18px",
+            lineHeight: 1.8,
+            maxWidth: "700px",
           }}
         >
-          Your cozy corner for wellness, learning, and group buys.
+          Browse products, place orders, calculate totals,
+          track shipments, and access educational resources —
+          all in one place.
         </p>
 
         <div
           style={{
             display: "flex",
-            gap: "15px",
-            flexWrap: "wrap",
+            gap: "16px",
+            marginTop: "10px",
           }}
         >
-          <div
-            style={{
-              background: "white",
-              padding: "10px 20px",
-              borderRadius: "999px",
-              color: "#FF69B4",
-            }}
-          >
-            🛡 Safe
-          </div>
+          <button>
+            🛍 Browse Products
+          </button>
 
-          <div
+          <button
             style={{
-              background: "white",
-              padding: "10px 20px",
-              borderRadius: "999px",
-              color: "#FF69B4",
+              background: "#FFFFFF",
+              color: "#290087",
+              border: "1px solid #C1A0AC",
             }}
           >
-            💗 Trusted
-          </div>
-
-          <div
-            style={{
-              background: "white",
-              padding: "10px 20px",
-              borderRadius: "999px",
-              color: "#FF69B4",
-            }}
-          >
-            ✨ Transparent
-          </div>
-
-          <div
-            style={{
-              background: "white",
-              padding: "10px 20px",
-              borderRadius: "999px",
-              color: "#FF69B4",
-            }}
-          >
-            👭 Community
-          </div>
+            📚 Explore Library
+          </button>
         </div>
-      </div>
-
-      <div
-        style={{
-          fontSize: "100px",
-        }}
-      >
-        🧪
       </div>
     </div>
   );
