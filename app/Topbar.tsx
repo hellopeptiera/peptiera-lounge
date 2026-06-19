@@ -2,31 +2,28 @@ export default function Topbar() {
   return (
     <div
       style={{
-        background: "#FFF8FB",
-        padding: "25px 40px",
-        borderBottom: "1px solid #F5E3EC",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        marginBottom: "30px",
       }}
     >
       <div>
         <h2
           style={{
-            margin: 0,
-            color: "#333",
+            color: "#16131F",
+            marginBottom: "6px",
           }}
         >
-          Welcome back, Tammy! 💕
+          Good Evening ✨
         </h2>
 
         <p
           style={{
-            marginTop: "8px",
-            color: "#888",
+            color: "#806C79",
           }}
         >
-          Here's what's happening in your lounge today.
+          Welcome to Peptiéra Lounge
         </p>
       </div>
 
@@ -34,34 +31,73 @@ export default function Topbar() {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "30px",
-          fontSize: "1.1rem",
+          gap: "20px",
         }}
       >
-        <span>🔔</span>
-
         <div
           style={{
-            color: "#FF69B4",
-            fontWeight: "bold",
+            background: "#FFFFFF",
+            borderRadius: "18px",
+            padding: "14px",
+            boxShadow: "0 8px 20px rgba(0,0,0,.06)",
           }}
         >
-          💗 1,250
+          🔔
         </div>
 
         <div
           style={{
-            width: "45px",
-            height: "45px",
-            borderRadius: "50%",
-            background: "#FFD8EB",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "1.5rem",
+            background: "#FFFFFF",
+            borderRadius: "18px",
+            padding: "14px",
+            boxShadow: "0 8px 20px rgba(0,0,0,.06)",
           }}
         >
-          👧🏻
+          💗
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+          }}
+        >
+          <div
+            style={{
+              width: "50px",
+              height: "50px",
+              background: "#290087",
+              borderRadius: "50%",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: "bold",
+            }}
+          >
+            T
+          </div>
+
+          <div>
+            <div
+              style={{
+                fontWeight: "bold",
+                color: "#16131F",
+              }}
+            >
+              Tammy
+            </div>
+
+            <div
+              style={{
+                color: "#806C79",
+                fontSize: "13px",
+              }}
+            >
+              Member since 2026
+            </div>
+          </div>
         </div>
       </div>
     </div>
