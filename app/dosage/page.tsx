@@ -9,20 +9,30 @@ export default function DosagePage() {
 
   const [units, setUnits] = useState("--");
   const [volume, setVolume] = useState("--");
+  const [injects, setInjects] = useState("--");
+  const [weeks, setWeeks] = useState("--");
 
   function calculateDose() {
+    if (!bacWater || !dose) return;
+
     const concentration = product / Number(bacWater);
+
     const mlNeeded = Number(dose) / concentration;
+
     const syringeUnits = mlNeeded * 100;
+
+    const totalInjects = product / Number(dose);
 
     setUnits(syringeUnits.toFixed(1));
     setVolume(mlNeeded.toFixed(2));
+    setInjects(totalInjects.toFixed(0));
+    setWeeks(totalInjects.toFixed(0));
   }
 
   return (
     <div
       style={{
-        maxWidth: "800px",
+        maxWidth: "850px",
         margin: "0 auto",
       }}
     >
@@ -47,7 +57,7 @@ export default function DosagePage() {
           <option value={50}>GHK-Cu 50mg</option>
           <option value={100}>GHK-Cu 100mg</option>
           <option value={1500}>GTT1500</option>
-          <option value={500}>NAD+</option>
+          <option value={500}>NAD+ 500mg</option>
         </select>
 
         <br />
@@ -56,7 +66,7 @@ export default function DosagePage() {
         <h2>BAC Water (ml)</h2>
 
         <input
-          placeholder="Example: 3"
+          placeholder="Example: 1.5"
           value={bacWater}
           onChange={(e) => setBacWater(e.target.value)}
         />
@@ -75,7 +85,18 @@ export default function DosagePage() {
         <br />
         <br />
 
-        <button onClick={calculateDose}>
+        <button
+          onClick={calculateDose}
+          style={{
+            background: "#3B006A",
+            color: "white",
+            border: "none",
+            padding: "14px 28px",
+            borderRadius: "999px",
+            cursor: "pointer",
+            fontWeight: 600,
+          }}
+        >
           Calculate
         </button>
       </div>
@@ -89,11 +110,19 @@ export default function DosagePage() {
         <h2>Results</h2>
 
         <p>
-          Syringe Units: {units}
+          💉 Syringe Units: <b>{units}</b>
         </p>
 
         <p>
-          Volume (ml): {volume}
+          🧪 Volume (ml): <b>{volume}</b>
+        </p>
+
+        <p>
+          📅 Injects per Vial: <b>{injects}</b>
+        </p>
+
+        <p>
+          ⏳ Weeks per Vial (weekly dosing): <b>{weeks}</b>
         </p>
       </div>
     </div>
