@@ -32,12 +32,6 @@ export default function DashboardCards() {
       href: "/shipping",
     },
     {
-      emoji: "💗",
-      title: "Hearts Club",
-      subtitle: "",
-      href: "/hearts",
-    },
-    {
       emoji: "📚",
       title: "Guides",
       subtitle: "",
