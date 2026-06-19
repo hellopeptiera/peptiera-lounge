@@ -1,3 +1,4 @@
+import FooterCards from "./FooterCards";
 import ProductCards from "./ProductCards";
 import Topbar from "./Topbar";
 import HeroBanner from "./HeroBanner";
