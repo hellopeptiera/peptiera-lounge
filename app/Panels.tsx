@@ -143,12 +143,57 @@ export default function Panels() {
         >
           🌸 Batch Progress
         </h2>
-        <div style={{ lineHeight: "2.5" }}>
-          <div>TR15 — 0/10</div>
-          <div>TR30 — 0/10</div>
-          <div>GHK-Cu 100 — 0/10</div>
-          <div>GTT1500 — 0/10</div>
-        </div>
+       <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  }}
+>
+  {[
+    { name: "TR15", progress: 0 },
+    { name: "TR30", progress: 0 },
+    { name: "GHK-Cu 100", progress: 0 },
+    { name: "GTT1500", progress: 0 },
+  ].map((item) => (
+    <div key={item.name}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginBottom: "8px",
+          color: "#16131F",
+          fontWeight: 500,
+        }}
+      >
+        <span>{item.name}</span>
+        <span
+          style={{
+            color: "#806C79",
+          }}
+        >
+          {item.progress}/10
+        </span>
+      </div>
+      <div
+        style={{
+          height: "10px",
+          background: "#EFE7E2",
+          borderRadius: "999px",
+        }}
+      >
+        <div
+          style={{
+            width: `${item.progress * 10}%`,
+            height: "100%",
+            background: "#C9A7EB",
+            borderRadius: "999px",
+          }}
+        />
+      </div>
+    </div>
+  ))}
+</div>
       </div>
     {/* Shipments */}
 <div
