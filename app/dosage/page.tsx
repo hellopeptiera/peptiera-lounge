@@ -2,66 +2,54 @@ export default function DosagePage() {
   return (
     <div
       style={{
-        maxWidth: "900px",
-        margin: "auto",
-        padding: "32px",
+        maxWidth: "800px",
+        margin: "0 auto",
       }}
     >
-      <h1>💉 Dosage Calculator</h1>
-      <div
+      <h1
         style={{
-          background: "#FFFFFF",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
+          color: "#290087",
+          marginBottom: "30px",
         }}
       >
-        <h2>🧪 Reconstitution Calculator</h2>
-        <p>
-          Calculate concentration based on peptide amount and BAC water added.
-        </p>
+        💉 Dosage Calculator
+      </h1>
+      <div className="card">
+        <h2>Select Product</h2>
+        <select>
+          <option>Tirzepatide 15mg</option>
+          <option>Tirzepatide 30mg</option>
+          <option>GHK-Cu 50mg</option>
+          <option>GHK-Cu 100mg</option>
+          <option>GTT1500</option>
+          <option>NAD+</option>
+        </select>
+        <br />
+        <br />
+        <h2>BAC Water (ml)</h2>
+        <input placeholder="Example: 3" />
+        <br />
+        <br />
+        <h2>Desired Dose (mg)</h2>
+        <input placeholder="Example: 2.5" />
+        <br />
+        <br />
+        <button>
+          Calculate
+        </button>
       </div>
       <div
+        className="card"
         style={{
-          background: "#FFFFFF",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
+          marginTop: "30px",
         }}
       >
-        <h2>💉 Units Converter</h2>
+        <h2>Results</h2>
         <p>
-          Convert mg to insulin syringe units.
+          Syringe Units: --
         </p>
-      </div>
-      <div
-        style={{
-          background: "#FFFFFF",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
-        }}
-      >
-        <h2>📏 IU Calculator</h2>
         <p>
-          Convert between IU, mL and units.
-        </p>
-      </div>
-      <div
-        style={{
-          background: "#FFFFFF",
-          border: "1px solid #C1A0AC",
-          borderRadius: "24px",
-          padding: "24px",
-          marginTop: "24px",
-        }}
-      >
-        <h2>⭐ Favorite Presets</h2>
-        <p>
-          Save commonly used concentrations for quick access.
+          Volume (ml): --
         </p>
       </div>
     </div>
