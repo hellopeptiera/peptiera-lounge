@@ -44,7 +44,6 @@ export default function HeroBanner() {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-start",
             flexWrap: "wrap",
             gap: "30px",
           }}
