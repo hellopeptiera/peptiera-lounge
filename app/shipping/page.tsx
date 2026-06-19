@@ -1,67 +1,53 @@
 export default function ShippingPage() {
-  const updates = [
-    {
-      status: "🟡 Pending",
-      description: "Order has been received and is awaiting submission.",
-    },
-    {
-      status: "🟠 Ordered",
-      description: "Order has been submitted to the manufacturer.",
-    },
-    {
-      status: "🔵 Shipped",
-      description: "International shipment is in transit.",
-    },
-    {
-      status: "🟣 Arrived",
-      description: "Shipment has arrived in the Philippines.",
-    },
-    {
-      status: "🟢 Delivered",
-      description: "Local delivery has been completed.",
-    },
-  ];
-
   return (
     <div
       style={{
         maxWidth: "1000px",
-        margin: "auto",
-        padding: "32px",
+        margin: "0 auto",
       }}
     >
-      <h1>🚚 Shipping Updates</h1>
-
-      <div
+      <h1
         style={{
-          display: "grid",
-          gap: "24px",
+          color: "#290087",
+          marginBottom: "30px",
+        }}
+      >
+        🚚 Shipping Updates
+      </h1>
+      <div className="card">
+        <h2>International Shipment</h2>
+        <br />
+        <p>Status: Awaiting Dispatch</p>
+        <p>Carrier: -----</p>
+        <p>Tracking Number: -----</p>
+        <p>Estimated Arrival: -----</p>
+      </div>
+      <div
+        className="card"
+        style={{
           marginTop: "30px",
         }}
       >
-        {updates.map((update) => (
-          <div
-            key={update.status}
-            style={{
-              background: "#FFFFFF",
-              border: "1px solid #C1A0AC",
-              borderRadius: "24px",
-              padding: "24px",
-            }}
-          >
-            <h2>{update.status}</h2>
-
-            <p
-              style={{
-                marginTop: "12px",
-                lineHeight: "1.8",
-                color: "#4A3F4B",
-              }}
-            >
-              {update.description}
-            </p>
-          </div>
-        ))}
+        <h2>Local Shipment</h2>
+        <br />
+        <p>Courier: J&T Express</p>
+        <p>Tracking Number: -----</p>
+        <p>Status: Pending</p>
+      </div>
+      <div
+        className="card"
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <h2>Shipping Timeline</h2>
+        <br />
+        <p>🟢 Order Paid</p>
+        <p>🟢 MOQ Complete</p>
+        <p>🟡 International Shipping</p>
+        <p>⚪ Arrived in PH</p>
+        <p>⚪ Local Shipping</p>
+        <p>⚪ Delivered</p>
       </div>
     </div>
   );
