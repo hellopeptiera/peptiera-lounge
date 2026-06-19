@@ -1,3 +1,4 @@
+import Link fron "next/link";
 export default function TrackerPage() {
   return (
     <div
@@ -6,6 +7,25 @@ export default function TrackerPage() {
         margin: "0 auto",
       }}
     >
+      <Link
+  href="/"
+  style={{
+    width: "50px",
+    height: "50px",
+    borderRadius: "50%",
+    background: "#F5E9E2",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "none",
+    color: "#160029",
+    fontSize: "24px",
+    boxShadow: "0 8px 20px rgba(0,0,0,.08)",
+    marginBottom: "20px",
+  }}
+>
+  ←
+</Link>
       <h1
         style={{
           color: "#290087",
