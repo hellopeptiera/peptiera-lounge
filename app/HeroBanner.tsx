@@ -1,20 +1,29 @@
 export default function HeroBanner() {
   return (
-    <div style={{ marginBottom: "30px" }}>
-      <p
+    <div
+      style={{
+        background: "#FFFFFF",
+        borderRadius: "28px",
+        padding: "40px",
+        boxShadow: "0 8px 24px rgba(0,0,0,.06)",
+        marginBottom: "32px",
+      }}
+    >
+      <div
         style={{
           color: "#806C79",
           fontSize: "14px",
+          marginBottom: "12px",
         }}
       >
-        Welcome back,
-      </p>
+        🌙 Small daily choices create big transformations.
+      </div>
 
       <h1
         style={{
           color: "#16131F",
-          fontSize: "42px",
-          marginBottom: "8px",
+          fontSize: "48px",
+          margin: 0,
         }}
       >
         Tammy ♡
@@ -23,62 +32,88 @@ export default function HeroBanner() {
       <p
         style={{
           color: "#806C79",
-          marginBottom: "30px",
+          marginTop: "16px",
+          fontSize: "16px",
         }}
       >
-        Thank you for being part of Peptiéra.
+        Welcome back. Thank you for being part of Peptiéra.
       </p>
 
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+          display: "flex",
           gap: "20px",
+          marginTop: "36px",
+          flexWrap: "wrap",
         }}
       >
-        <div className="card">
-          <p>Batch Status</p>
+        <div
+          style={{
+            background: "#F8F5FF",
+            padding: "20px",
+            borderRadius: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <div style={{ color: "#806C79", fontSize: "14px" }}>
+            Batch Status
+          </div>
 
-          <h2
+          <div
             style={{
-              color: "#6D2DB8",
-              marginTop: "10px",
+              color: "#290087",
+              fontSize: "28px",
+              fontWeight: "bold",
             }}
           >
             Open
-          </h2>
-
-          <p>Closes in 5 days</p>
+          </div>
         </div>
 
-        <div className="card">
-          <p>My Orders</p>
+        <div
+          style={{
+            background: "#FFF8E6",
+            padding: "20px",
+            borderRadius: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <div style={{ color: "#806C79", fontSize: "14px" }}>
+            My Orders
+          </div>
 
-          <h2
+          <div
             style={{
-              color: "#6D2DB8",
-              marginTop: "10px",
+              color: "#290087",
+              fontSize: "28px",
+              fontWeight: "bold",
             }}
           >
             0
-          </h2>
-
-          <p>Active orders</p>
+          </div>
         </div>
 
-        <div className="card">
-          <p>Outstanding Balance</p>
+        <div
+          style={{
+            background: "#FFEAF7",
+            padding: "20px",
+            borderRadius: "20px",
+            minWidth: "180px",
+          }}
+        >
+          <div style={{ color: "#806C79", fontSize: "14px" }}>
+            Outstanding Balance
+          </div>
 
-          <h2
+          <div
             style={{
-              color: "#6D2DB8",
-              marginTop: "10px",
+              color: "#290087",
+              fontSize: "28px",
+              fontWeight: "bold",
             }}
           >
             ₱0
-          </h2>
-
-          <p>No balance due.</p>
+          </div>
         </div>
       </div>
     </div>
