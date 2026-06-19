@@ -1,4 +1,4 @@
-import ProductCards from "./ProductCards";
+import ProductCard from "./ProductCard";
 import Topbar from "./Topbar";
 import HeroBanner from "./HeroBanner";
 import DashboardCards from "./DashboardCards";
