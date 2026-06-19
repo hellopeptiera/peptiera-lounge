@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function LibraryPage() {
   return (
     <div
@@ -25,6 +27,7 @@ export default function LibraryPage() {
           borderRadius: "20px",
           border: "1px solid #eee",
           marginBottom: "30px",
+          background: "white",
         }}
       />
 
@@ -35,34 +38,80 @@ export default function LibraryPage() {
           gap: "25px",
         }}
       >
+        {/* Guides */}
         <div className="card">
           <h2>💗 Guides</h2>
-          <p>Storage Guide</p>
-          <p>Reconstitution Guide</p>
-          <p>Injection Sites</p>
-          <p>Insulin Syringe Basics</p>
+
+          <Link href="/library/storage-guide">
+            <p>📦 Storage Guide</p>
+          </Link>
+
+          <Link href="/library/reconstitution-guide">
+            <p>🧪 Reconstitution Guide</p>
+          </Link>
+
+          <Link href="/library/injection-sites">
+            <p>💉 Injection Sites</p>
+          </Link>
+
+          <Link href="/library/insulin-syringe-basics">
+            <p>💗 Insulin Syringe Basics</p>
+          </Link>
         </div>
 
+        {/* FAQs */}
         <div className="card">
           <h2>❓ FAQs</h2>
-          <p>Group Buy Guide</p>
-          <p>MOQ Explained</p>
-          <p>Payment Methods</p>
-          <p>Shipping Process</p>
+
+          <Link href="/library/group-buy-guide">
+            <p>💗 Group Buy Guide</p>
+          </Link>
+
+          <Link href="/library/moq-explained">
+            <p>📦 MOQ Explained</p>
+          </Link>
+
+          <Link href="/library/payment-methods">
+            <p>💳 Payment Methods</p>
+          </Link>
+
+          <Link href="/library/shipping-process">
+            <p>🚚 Shipping Process</p>
+          </Link>
         </div>
 
+        {/* Product Information */}
         <div className="card">
           <h2>🧬 Product Information</h2>
-          <p>Storage</p>
-          <p>Side Effects</p>
-          <p>Synergistic Stacks</p>
+
+          <Link href="/library/storage">
+            <p>❄️ Storage</p>
+          </Link>
+
+          <Link href="/library/side-effects">
+            <p>⚠️ Side Effects</p>
+          </Link>
+
+          <Link href="/library/synergistic-stacks">
+            <p>🧬 Synergistic Stacks</p>
+          </Link>
         </div>
 
+        {/* Shipping */}
         <div className="card">
           <h2>📦 Shipping & Orders</h2>
-          <p>Tracking</p>
-          <p>Timeline</p>
-          <p>Delays</p>
+
+          <Link href="/library/tracking">
+            <p>📍 Tracking</p>
+          </Link>
+
+          <Link href="/library/timeline">
+            <p>📅 Timeline</p>
+          </Link>
+
+          <Link href="/library/delays">
+            <p>⏳ Delays</p>
+          </Link>
         </div>
       </div>
     </div>
