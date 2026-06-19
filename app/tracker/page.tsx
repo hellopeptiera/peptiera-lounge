@@ -1,4 +1,4 @@
-import Link fron "next/link";
+import Link from "next/link";
 export default function TrackerPage() {
   return (
     <div
