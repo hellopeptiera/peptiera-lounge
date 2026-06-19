@@ -11,8 +11,8 @@ export default function RootLayout({
       <body
         style={{
           background: "#F6FFE9",
-          padding: "20px",
           margin: 0,
+          padding: "20px",
         }}
       >
         <div
@@ -22,10 +22,8 @@ export default function RootLayout({
             minHeight: "100vh",
           }}
         >
-          {/* Sidebar */}
           <Sidebar />
 
-          {/* Main Content */}
           <main
             style={{
               flex: 1,
