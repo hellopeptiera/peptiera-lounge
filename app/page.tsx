@@ -1,4 +1,3 @@
-import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import HeroBanner from "./HeroBanner";
 import DashboardCards from "./DashboardCards";
@@ -6,36 +5,26 @@ import Panels from "./Panels";
 
 export default function Home() {
   return (
-    <div
-      style={{
-        display: "flex",
-        background: "#FFFDFE",
-        minHeight: "100vh",
-      }}
-    >
-      <Sidebar />
+    <>
+      <Topbar />
 
       <div
         style={{
-          flex: 1,
+          padding: "40px",
+          maxWidth: "1400px",
+          margin: "0 auto",
         }}
       >
-        <Topbar />
+        <HeroBanner />
 
-        <div
-          style={{
-            padding: "40px",
-            maxWidth: "1400px",
-            margin: "0 auto",
-          }}
-        >
-          <HeroBanner />
-
+        <div style={{ marginTop: "40px" }}>
           <DashboardCards />
+        </div>
 
+        <div style={{ marginTop: "40px" }}>
           <Panels />
         </div>
       </div>
-    </div>
+    </>
   );
 }
