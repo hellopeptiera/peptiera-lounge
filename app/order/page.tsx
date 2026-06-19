@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function OrderPage() {
   const [fullName, setFullName] = useState("");
@@ -90,6 +91,25 @@ export default function OrderPage() {
         fontFamily: "Arial",
       }}
     >
+      <Link
+  href="/"
+  style={{
+    width: "50px",
+    height: "50px",
+    borderRadius: "50%",
+    background: "#F5E9E2",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textDecoration: "none",
+    color: "#160029",
+    fontSize: "24px",
+    boxShadow: "0 8px 20px rgba(0,0,0,.08)",
+    marginBottom: "20px",
+  }}
+>
+  ←
+</Link>
       <h1
         style={{
           color: "#FF4F9F",
