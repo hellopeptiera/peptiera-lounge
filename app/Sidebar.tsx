@@ -2,7 +2,7 @@ import Link from "next/link";
 export default function Sidebar() {
   const links = [
     { emoji: "🏠", title: "Dashboard", href: "/" },
-    { emoji: "💰", title: "pricelist", href: "/pricelist" },
+    { emoji: "💰", title: "Pricelist", href: "/pricelist" },
     { emoji: "🛒", title: "Products", href: "/products" },
     { emoji: "📦", title: "Order Tracker", href: "/tracker" },
     { emoji: "📝", title: "Place Order", href: "/order" },
@@ -15,17 +15,19 @@ export default function Sidebar() {
   return (
     <div
       style={{
-        width: "200px",
-        background: "#FFFFFF",
-        borderRadius: "28px",
-        padding: "24px",
-        boxShadow: "0 8px 24px rgba(0,0,0,.06)",
+        width: "220px",
+        background: "#DCCEFF",
+        borderRadius: "32px",
+        padding: "28px",
+        boxShadow: "0 10px 30px rgba(109,45,184,.15)",
       }}
     >
       <h2
         style={{
-          color: "#290087",
+          color: "#6D2DB8",
           marginBottom: "30px",
+          fontWeight: 700,
+          letterSpacing: "1px",
         }}
       >
         PEPTIÉRA
@@ -34,7 +36,7 @@ export default function Sidebar() {
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "14px",
+          gap: "12px",
         }}
       >
         {links.map((link) => (
@@ -43,13 +45,20 @@ export default function Sidebar() {
             href={link.href}
             style={{
               textDecoration: "none",
-              color: "#4A3F4B",
-              padding: "12px",
-              borderRadius: "16px",
-              transition: ".2s",
             }}
           >
-            {link.emoji} {link.title}
+            <div
+              style={{
+                color: "#4A3F4B",
+                padding: "14px 16px",
+                borderRadius: "18px",
+                background: "rgba(255,255,255,.45)",
+                fontWeight: 500,
+                transition: ".3s",
+              }}
+            >
+              {link.emoji} {link.title}
+            </div>
           </Link>
         ))}
       </div>
