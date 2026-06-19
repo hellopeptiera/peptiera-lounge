@@ -1,68 +1,52 @@
 export default function TrackerPage() {
-  const statuses = [
-    {
-      status: "🟡 Pending Payment",
-      description: "Waiting for payment confirmation.",
-    },
-    {
-      status: "🟢 Paid",
-      description: "Payment has been received.",
-    },
-    {
-      status: "🟠 Ordered",
-      description: "Order has been submitted to the manufacturer.",
-    },
-    {
-      status: "🔵 Shipped",
-      description: "International shipment is in transit.",
-    },
-    {
-      status: "🟣 Arrived",
-      description: "Shipment has arrived in the Philippines.",
-    },
-    {
-      status: "✅ Delivered",
-      description: "Order has been successfully delivered.",
-    },
-  ];
   return (
     <div
       style={{
-        maxWidth: "900px",
-        margin: "auto",
-        padding: "32px",
+        maxWidth: "1000px",
+        margin: "0 auto",
       }}
     >
-      <h1>📦 Order Tracker</h1>
-      <div
+      <h1
         style={{
-          display: "grid",
-          gap: "20px",
+          color: "#290087",
+          marginBottom: "30px",
+        }}
+      >
+        📦 Order Tracker
+      </h1>
+      <div className="card">
+        <h2>Current Order Status</h2>
+        <br />
+        <p>🟢 Paid</p>
+        <p>🟡 MOQ Complete</p>
+        <p>⚪ Ordered</p>
+        <p>⚪ International Shipping</p>
+        <p>⚪ Arrived</p>
+        <p>⚪ Local Shipping</p>
+        <p>⚪ Delivered</p>
+      </div>
+      <div
+        className="card"
+        style={{
           marginTop: "30px",
         }}
       >
-        {statuses.map((item) => (
-          <div
-            key={item.status}
-            style={{
-              background: "#FFFFFF",
-              border: "1px solid #C1A0AC",
-              borderRadius: "24px",
-              padding: "24px",
-            }}
-          >
-            <h2>{item.status}</h2>
-            <p
-              style={{
-                marginTop: "12px",
-                color: "#4A3F4B",
-                lineHeight: "1.8",
-              }}
-            >
-              {item.description}
-            </p>
-          </div>
-        ))}
+        <h2>Order Information</h2>
+        <br />
+        <p>Order Number: -----</p>
+        <p>Batch: -----</p>
+        <p>Date Ordered: -----</p>
+        <p>Total Amount: -----</p>
+      </div>
+      <div
+        className="card"
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <h2>Shipping Updates</h2>
+        <br />
+        <p>No updates available.</p>
       </div>
     </div>
   );
