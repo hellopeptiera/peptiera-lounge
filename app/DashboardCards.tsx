@@ -1,89 +1,89 @@
 import Link from "next/link";
 export default function DashboardCards() {
-  const backgrounds = [
-    "#FFF6FB",
-    "#F3EEFF",
-    "#FFFBE7",
-    "#FFF0F8",
-    "#F8F3FF",
-    "#FFF8F1",
-  ];
   const cards = [
     {
-      emoji: "💰",
-      title: "Pricelist",
-      subtitle: "Pricelist info",
-      href: "/pricelist",
-    },
-    {
-      emoji: "📚",
-      title: "Library",
-      subtitle: "Guides & storage",
-      href: "/library",
-    },
-    {
-      emoji: "🧬",
-      title: "Encyclopedia",
-      subtitle: "Research database",
-      href: "/encyclopedia",
+      emoji: "📝",
+      title: "Place Order",
+      subtitle: "",
+      href: "/order",
     },
     {
       emoji: "📦",
       title: "Order Tracker",
-      subtitle: "Track active orders",
+      subtitle: "",
       href: "/tracker",
     },
     {
       emoji: "💉",
       title: "Dosage Calculator",
-      subtitle: "Dose conversions",
+      subtitle: "",
       href: "/dosage",
     },
     {
-      emoji: "📈",
-      title: "Progress Tracker",
-      subtitle: "Monitor journey",
-      href: "/progress",
-    },
-    {
-      emoji: "📢",
-      title: "Announcements",
-      subtitle: "Latest updates",
-      href: "/announcements",
+      emoji: "🧪",
+      title: "Reconstitution Calc",
+      subtitle: "",
+      href: "/reconstitution",
     },
     {
       emoji: "🚚",
-      title: "Shipping Updates",
-      subtitle: "Shipment status",
+      title: "Shipments",
+      subtitle: "",
       href: "/shipping",
     },
     {
-      emoji: "📝",
-      title: "Place Order",
-      subtitle: "Submit an order",
-      href: "/order",
+      emoji: "💗",
+      title: "Hearts Club",
+      subtitle: "",
+      href: "/hearts",
+    },
+    {
+      emoji: "📚",
+      title: "Guides",
+      subtitle: "",
+      href: "/library",
+    },
+    {
+      emoji: "📍",
+      title: "Address Book",
+      subtitle: "",
+      href: "/address",
+    },
+    {
+      emoji: "🎧",
+      title: "Support",
+      subtitle: "",
+      href: "/support",
     },
   ];
   return (
-    <div>
-      <h2
+    <div
+      style={{
+        background: "white",
+        borderRadius: "30px",
+        padding: "30px",
+        boxShadow: "0 8px 25px rgba(0,0,0,.05)",
+      }}
+    >
+      <h3
         style={{
-          color: "#6D2DB8",
-          marginBottom: "24px",
-          fontSize: "28px",
-          fontWeight: 700,
+          color: "#773344",
+          marginBottom: "25px",
+          fontSize: "14px",
+          letterSpacing: "1px",
+          textTransform: "uppercase",
         }}
       >
-        ✨ Quick Access
-      </h2>
+        Quick Access
+      </h3>
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+          gridTemplateColumns: "repeat(3,1fr)",
           gap: "20px",
         }}
       >
-        {cards.map((card, index) => (
+        {cards.map((card) => (
           <Link
             key={card.title}
             href={card.href}
@@ -93,42 +93,41 @@ export default function DashboardCards() {
           >
             <div
               style={{
-                background: backgrounds[index % backgrounds.length],
-                borderRadius: "28px",
-                padding: "28px",
-                border: "2px solid #F8E8FF",
-                boxShadow: "0 8px 25px rgba(255,133,192,.15)",
-                cursor: "pointer",
-                height: "100%",
+                background: "#FBF7F5",
+                border: "1px solid #EFE7E2",
+                borderRadius: "20px",
+                padding: "25px 15px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "10px",
                 transition: ".3s",
+                cursor: "pointer",
               }}
             >
               <div
                 style={{
-                  fontSize: "34px",
-                  marginBottom: "15px",
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "18px",
+                  background: "#F5E9E2",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "28px",
                 }}
               >
                 {card.emoji}
               </div>
               <div
                 style={{
-                  color: "#6D2DB8",
-                  fontSize: "18px",
-                  fontWeight: 700,
-                  marginBottom: "8px",
+                  color: "#160029",
+                  fontSize: "14px",
+                  textAlign: "center",
+                  fontWeight: 500,
                 }}
               >
                 {card.title}
-              </div>
-              <div
-                style={{
-                  color: "#777",
-                  fontSize: "14px",
-                  lineHeight: "1.6",
-                }}
-              >
-                {card.subtitle}
               </div>
             </div>
           </Link>
