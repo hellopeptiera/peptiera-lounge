@@ -8,7 +8,7 @@ export default function DashboardCards() {
       href: "/on-hand",
     },
     {
-      emoji: "🛍",
+      emoji: "💰",
       title: "pricelist",
       subtitle: "pricelist info",
       href: "/pricelist",
