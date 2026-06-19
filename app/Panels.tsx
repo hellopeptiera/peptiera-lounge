@@ -54,12 +54,77 @@ export default function Panels() {
         >
           📚 Tutorials
         </h2>
-        <div style={{ lineHeight: "2.5" }}>
-          <div>🧪 Reconstitution Guide</div>
-          <div>💉 Insulin Syringe Basics</div>
-          <div>❄️ Storage Guide</div>
-          <div>📍 Injection Sites</div>
+        <div
+  style={{
+    display: "grid",
+    gap: "15px",
+  }}
+>
+  {[
+    {
+      emoji: "🧪",
+      title: "Reconstitution Guide",
+    },
+    {
+      emoji: "💉",
+      title: "Insulin Syringe Basics",
+    },
+    {
+      emoji: "❄️",
+      title: "Storage Guide",
+    },
+    {
+      emoji: "📍",
+      title: "Injection Sites",
+    },
+  ].map((guide) => (
+    <div
+      key={guide.title}
+      style={{
+        background: "#FBF7F5",
+        borderRadius: "20px",
+        padding: "18px",
+        display: "flex",
+        alignItems: "center",
+        gap: "15px",
+        border: "1px solid #EFE7E2",
+      }}
+    >
+      <div
+        style={{
+          width: "50px",
+          height: "50px",
+          borderRadius: "16px",
+          background: "#F5E9E2",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "24px",
+        }}
+      >
+        {guide.emoji}
+      </div>
+      <div>
+        <div
+          style={{
+            color: "#16131F",
+            fontWeight: 500,
+          }}
+        >
+          {guide.title}
         </div>
+        <div
+          style={{
+            color: "#806C79",
+            fontSize: "13px",
+          }}
+        >
+          Learn more
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
       {/* Batch Progress */}
       <div
