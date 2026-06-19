@@ -5,68 +5,88 @@ export default function Topbar() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        marginBottom: "30px",
+        marginBottom: "35px",
+        flexWrap: "wrap",
+        gap: "20px",
       }}
     >
+      {/* Left */}
       <div>
+        <div
+          style={{
+            color: "#806C79",
+            fontSize: "15px",
+            marginBottom: "8px",
+          }}
+        >
+          ✨ Good Evening
+        </div>
         <h2
           style={{
             color: "#16131F",
-            marginBottom: "6px",
-          }}
-        >
-          Good Evening ✨
-        </h2>
-
-        <p
-          style={{
-            color: "#806C79",
+            fontSize: "36px",
+            margin: 0,
+            fontWeight: 500,
           }}
         >
           Welcome to Peptiéra Lounge
-        </p>
+        </h2>
       </div>
-
+      {/* Right */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "20px",
+          gap: "18px",
         }}
       >
         <div
           style={{
+            width: "55px",
+            height: "55px",
             background: "#FFFFFF",
-            borderRadius: "18px",
-            padding: "14px",
-            boxShadow: "0 8px 20px rgba(0,0,0,.06)",
+            borderRadius: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 8px 20px rgba(0,0,0,.05)",
+            fontSize: "22px",
+            cursor: "pointer",
           }}
         >
           🔔
         </div>
-
         <div
           style={{
+            width: "55px",
+            height: "55px",
             background: "#FFFFFF",
-            borderRadius: "18px",
-            padding: "14px",
-            boxShadow: "0 8px 20px rgba(0,0,0,.06)",
+            borderRadius: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 8px 20px rgba(0,0,0,.05)",
+            fontSize: "22px",
+            cursor: "pointer",
           }}
         >
           💗
         </div>
-
         <div
           style={{
+            background: "#FFFFFF",
+            borderRadius: "25px",
+            padding: "14px 18px",
             display: "flex",
             alignItems: "center",
-            gap: "12px",
+            gap: "15px",
+            boxShadow: "0 8px 20px rgba(0,0,0,.05)",
           }}
         >
           <div
             style={{
-              width: "50px",
-              height: "50px",
+              width: "55px",
+              height: "55px",
               background: "#290087",
               borderRadius: "50%",
               color: "white",
@@ -74,21 +94,21 @@ export default function Topbar() {
               alignItems: "center",
               justifyContent: "center",
               fontWeight: "bold",
+              fontSize: "18px",
             }}
           >
             T
           </div>
-
           <div>
             <div
               style={{
-                fontWeight: "bold",
                 color: "#16131F",
+                fontWeight: 600,
+                marginBottom: "4px",
               }}
             >
               Tammy
             </div>
-
             <div
               style={{
                 color: "#806C79",
