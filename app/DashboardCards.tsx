@@ -1,11 +1,18 @@
 import Link from "next/link";
 export default function DashboardCards() {
+  const backgrounds = [
+    "#FFF6FB",
+    "#F3EEFF",
+    "#FFFBE7",
+    "#FFF0F8",
+    "#F8F3FF",
+    "#FFF8F1",
+  ];
   const cards = [
-   
     {
       emoji: "💰",
-      title: "pricelist",
-      subtitle: "pricelist info",
+      title: "Pricelist",
+      subtitle: "Pricelist info",
       href: "/pricelist",
     },
     {
@@ -61,11 +68,13 @@ export default function DashboardCards() {
     <div>
       <h2
         style={{
-          color: "#290087",
+          color: "#6D2DB8",
           marginBottom: "24px",
+          fontSize: "28px",
+          fontWeight: 700,
         }}
       >
-        Quick Access
+        ✨ Quick Access
       </h2>
       <div
         style={{
@@ -74,7 +83,7 @@ export default function DashboardCards() {
           gap: "20px",
         }}
       >
-        {cards.map((card) => (
+        {cards.map((card, index) => (
           <Link
             key={card.title}
             href={card.href}
@@ -84,27 +93,29 @@ export default function DashboardCards() {
           >
             <div
               style={{
-                background: "#FFFFFF",
-                borderRadius: "24px",
-                padding: "24px",
-                boxShadow: "0 8px 20px rgba(0,0,0,.06)",
+                background: backgrounds[index % backgrounds.length],
+                borderRadius: "28px",
+                padding: "28px",
+                border: "2px solid #F8E8FF",
+                boxShadow: "0 8px 25px rgba(255,133,192,.15)",
                 cursor: "pointer",
                 height: "100%",
+                transition: ".3s",
               }}
             >
               <div
                 style={{
-                  fontSize: "32px",
-                  marginBottom: "12px",
+                  fontSize: "34px",
+                  marginBottom: "15px",
                 }}
               >
                 {card.emoji}
               </div>
               <div
                 style={{
-                  color: "#290087",
+                  color: "#6D2DB8",
                   fontSize: "18px",
-                  fontWeight: 600,
+                  fontWeight: 700,
                   marginBottom: "8px",
                 }}
               >
@@ -114,6 +125,7 @@ export default function DashboardCards() {
                 style={{
                   color: "#777",
                   fontSize: "14px",
+                  lineHeight: "1.6",
                 }}
               >
                 {card.subtitle}
