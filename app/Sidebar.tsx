@@ -4,7 +4,6 @@ export default function Sidebar() {
     { emoji: "🏠", title: "Dashboard", href: "/" },
     { emoji: "💰", title: "pricelist", href: "/pricelist" },
     { emoji: "🛒", title: "Products", href: "/products" },
-    { emoji: "💗", title: "On Hand", href: "/on-hand" },
     { emoji: "📦", title: "Order Tracker", href: "/tracker" },
     { emoji: "📝", title: "Place Order", href: "/order" },
     { emoji: "💉", title: "Dosage Calculator", href: "/dosage" },
