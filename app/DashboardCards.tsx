@@ -1,7 +1,112 @@
 export default function DashboardCards() {
+  const cards = [
+    {
+      emoji: "🛍",
+      title: "On Hand",
+      subtitle: "Ready-to-ship items",
+    },
+    {
+      emoji: "📚",
+      title: "Library",
+      subtitle: "Guides & storage",
+    },
+    {
+      emoji: "🧬",
+      title: "Encyclopedia",
+      subtitle: "Research database",
+    },
+    {
+      emoji: "📦",
+      title: "Order Tracker",
+      subtitle: "Track active orders",
+    },
+    {
+      emoji: "💉",
+      title: "Dosage Calculator",
+      subtitle: "Dose conversions",
+    },
+    {
+      emoji: "📈",
+      title: "Progress Tracker",
+      subtitle: "Monitor journey",
+    },
+    {
+      emoji: "📢",
+      title: "Announcements",
+      subtitle: "Latest updates",
+    },
+    {
+      emoji: "🚚",
+      title: "Shipping Updates",
+      subtitle: "Shipment status",
+    },
+    {
+      emoji: "📝",
+      title: "Place Order",
+      subtitle: "Submit an order",
+    },
+  ];
+
   return (
     <div>
-      Dashboard Cards
+      <h2
+        style={{
+          color: "#290087",
+          marginBottom: "24px",
+        }}
+      >
+        Quick Access
+      </h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))",
+          gap: "20px",
+        }}
+      >
+        {cards.map((card) => (
+          <div
+            key={card.title}
+            style={{
+              background: "#FFFFFF",
+              borderRadius: "24px",
+              padding: "24px",
+              boxShadow: "0 8px 20px rgba(0,0,0,.06)",
+              cursor: "pointer",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "32px",
+                marginBottom: "12px",
+              }}
+            >
+              {card.emoji}
+            </div>
+
+            <div
+              style={{
+                color: "#290087",
+                fontSize: "18px",
+                fontWeight: 600,
+                marginBottom: "8px",
+              }}
+            >
+              {card.title}
+            </div>
+
+            <div
+              style={{
+                color: "#777",
+                fontSize: "14px",
+              }}
+            >
+              {card.subtitle}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
