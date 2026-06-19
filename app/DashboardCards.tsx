@@ -1,12 +1,7 @@
 import Link from "next/link";
 export default function DashboardCards() {
   const cards = [
-    {
-      emoji: "🛍",
-      title: "On Hand",
-      subtitle: "Ready-to-ship items",
-      href: "/on-hand",
-    },
+   
     {
       emoji: "💰",
       title: "pricelist",
