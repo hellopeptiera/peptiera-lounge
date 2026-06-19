@@ -1,4 +1,24 @@
+"use client";
+
+import { useState } from "react";
+
 export default function DosagePage() {
+  const [product, setProduct] = useState(15);
+  const [bacWater, setBacWater] = useState("");
+  const [dose, setDose] = useState("");
+
+  const [units, setUnits] = useState("--");
+  const [volume, setVolume] = useState("--");
+
+  function calculateDose() {
+    const concentration = product / Number(bacWater);
+    const mlNeeded = Number(dose) / concentration;
+    const syringeUnits = mlNeeded * 100;
+
+    setUnits(syringeUnits.toFixed(1));
+    setVolume(mlNeeded.toFixed(2));
+  }
+
   return (
     <div
       style={{
@@ -14,30 +34,52 @@ export default function DosagePage() {
       >
         💉 Dosage Calculator
       </h1>
+
       <div className="card">
         <h2>Select Product</h2>
-        <select>
-          <option>Tirzepatide 15mg</option>
-          <option>Tirzepatide 30mg</option>
-          <option>GHK-Cu 50mg</option>
-          <option>GHK-Cu 100mg</option>
-          <option>GTT1500</option>
-          <option>NAD+</option>
+
+        <select
+          value={product}
+          onChange={(e) => setProduct(Number(e.target.value))}
+        >
+          <option value={15}>Tirzepatide 15mg</option>
+          <option value={30}>Tirzepatide 30mg</option>
+          <option value={50}>GHK-Cu 50mg</option>
+          <option value={100}>GHK-Cu 100mg</option>
+          <option value={1500}>GTT1500</option>
+          <option value={500}>NAD+</option>
         </select>
+
         <br />
         <br />
+
         <h2>BAC Water (ml)</h2>
-        <input placeholder="Example: 3" />
+
+        <input
+          placeholder="Example: 3"
+          value={bacWater}
+          onChange={(e) => setBacWater(e.target.value)}
+        />
+
         <br />
         <br />
+
         <h2>Desired Dose (mg)</h2>
-        <input placeholder="Example: 2.5" />
+
+        <input
+          placeholder="Example: 2.5"
+          value={dose}
+          onChange={(e) => setDose(e.target.value)}
+        />
+
         <br />
         <br />
-        <button>
+
+        <button onClick={calculateDose}>
           Calculate
         </button>
       </div>
+
       <div
         className="card"
         style={{
@@ -45,11 +87,13 @@ export default function DosagePage() {
         }}
       >
         <h2>Results</h2>
+
         <p>
-          Syringe Units: --
+          Syringe Units: {units}
         </p>
+
         <p>
-          Volume (ml): --
+          Volume (ml): {volume}
         </p>
       </div>
     </div>
