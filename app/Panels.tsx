@@ -4,66 +4,91 @@ export default function Panels() {
       style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
-        gap: "25px",
+        gap: "20px",
+        marginTop: "40px",
       }}
     >
-      {/* Announcements */}
+      {/* Recent Orders */}
       <div
         style={{
-          background: "white",
-          padding: "30px",
-          borderRadius: "25px",
-          border: "1px solid #F5E3EC",
-          boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+          background: "#FFFFFF",
+          borderRadius: "24px",
+          padding: "24px",
+          boxShadow: "0 8px 24px rgba(0,0,0,.06)",
         }}
       >
-        <h2 style={{ color: "#FF69B4" }}>📢 Announcements</h2>
-
-        <p>🎀 Batch 1 closes June 21</p>
-
-        <p>📦 TR30 Kit #1 completed</p>
-
-        <p>🚚 Shipment ETA June 28</p>
-
-        <p>✨ Unlimited kits available</p>
+        <h2
+          style={{
+            color: "#290087",
+            marginBottom: "16px",
+          }}
+        >
+          📦 Recent Orders
+        </h2>
+        <p>No active orders.</p>
       </div>
-
-      {/* My Orders */}
+      {/* Shipping Updates */}
       <div
         style={{
-          background: "white",
-          padding: "30px",
-          borderRadius: "25px",
-          border: "1px solid #F5E3EC",
-          boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+          background: "#FFFFFF",
+          borderRadius: "24px",
+          padding: "24px",
+          boxShadow: "0 8px 24px rgba(0,0,0,.06)",
         }}
       >
-        <h2 style={{ color: "#FF69B4" }}>📦 My Orders</h2>
-
-        <p>#PPT001 — Paid 🟢</p>
-
-        <p>#PPT002 — Processing 🟡</p>
-
-        <p>#PPT003 — Delivered 🎉</p>
+        <h2
+          style={{
+            color: "#290087",
+            marginBottom: "16px",
+          }}
+        >
+          🚚 Shipping Updates
+        </h2>
+        <p>No shipment updates.</p>
       </div>
-
-      {/* Upcoming Events */}
+      {/* Tutorials */}
       <div
         style={{
-          background: "white",
-          padding: "30px",
-          borderRadius: "25px",
-          border: "1px solid #F5E3EC",
-          boxShadow: "0 4px 15px rgba(0,0,0,0.05)",
+          background: "#FFFFFF",
+          borderRadius: "24px",
+          padding: "24px",
+          boxShadow: "0 8px 24px rgba(0,0,0,.06)",
         }}
       >
-        <h2 style={{ color: "#FF69B4" }}>📅 Upcoming Events</h2>
-
-        <p>June 21 — Batch 1 deadline</p>
-
-        <p>June 28 — Shipment ETA</p>
-
-        <p>July 1 — Local shipping begins</p>
+        <h2
+          style={{
+            color: "#290087",
+            marginBottom: "16px",
+          }}
+        >
+          📚 Tutorials
+        </h2>
+        <p>• Storage Guide</p>
+        <p>• Insulin Syringe Basics</p>
+        <p>• Reconstitution Guide</p>
+        <p>• Injection Sites</p>
+      </div>
+      {/* Batch Progress */}
+      <div
+        style={{
+          background: "#FFFFFF",
+          borderRadius: "24px",
+          padding: "24px",
+          boxShadow: "0 8px 24px rgba(0,0,0,.06)",
+        }}
+      >
+        <h2
+          style={{
+            color: "#290087",
+            marginBottom: "16px",
+          }}
+        >
+          🌸 Batch Progress
+        </h2>
+        <p>TR15 — 0/10</p>
+        <p>TR30 — 0/10</p>
+        <p>GHK-Cu 100 — 0/10</p>
+        <p>GTT1500 — 0/10</p>
       </div>
     </div>
   );
