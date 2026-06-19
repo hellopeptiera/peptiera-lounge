@@ -150,31 +150,38 @@ export default function Panels() {
           <div>GTT1500 — 0/10</div>
         </div>
       </div>
-      {/* Shipping Updates */}
-      <div
-        style={{
-          background: "#FFFFFF",
-          borderRadius: "30px",
-          padding: "30px",
-          boxShadow: "0 8px 24px rgba(0,0,0,.05)",
-        }}
-      >
-        <h2
-          style={{
-            color: "#16131F",
-            marginBottom: "25px",
-          }}
-        >
-          🚚 Shipping Updates
-        </h2>
-        <p
-          style={{
-            color: "#806C79",
-          }}
-        >
-          No shipment updates.
-        </p>
-      </div>
+    {/* Shipments */}
+<div
+  style={{
+    background: "#FFFFFF",
+    borderRadius: "30px",
+    padding: "30px",
+    boxShadow: "0 8px 24px rgba(0,0,0,.05)",
+  }}
+>
+  <h2
+    style={{
+      color: "#16131F",
+      marginBottom: "25px",
+    }}
+  >
+    🚚 Shipments — Batch 3
+  </h2>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: "18px",
+      color: "#806C79",
+    }}
+  >
+    <div>🟣 Manufacturer</div>
+    <div>🟣 International Shipping</div>
+    <div>🟣 Customs Clearance</div>
+    <div>⚪ Local Sorting</div>
+    <div>⚪ Ready for Dispatch</div>
+  </div>
+</div>
     </div>
   );
 }
