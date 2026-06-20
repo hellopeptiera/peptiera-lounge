@@ -12,7 +12,6 @@ export default function OrderPage() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -21,31 +20,28 @@ export default function OrderPage() {
 
   const [cart, setCart] = useState<any[]>([]);
 
- 
+  function addToCart() {
+    const selected = products.find(
+      (p) => p.code === product
+    );
 
-function addToCart() {
-  const selected = products.find(
-    (p) => p.code === product
-  );
+    if (!selected) return;
 
-  if (!selected) return;
-
-  const price =
-    Number(
+    const price = Number(
       selected.price
         .replace("₱", "")
         .replace(/,/g, "")
     );
 
-  setCart([
-    ...cart,
-    {
-      ...selected,
-      quantity,
-      total: price * quantity,
-    },
-  ]);
-}
+    setCart([
+      ...cart,
+      {
+        ...selected,
+        quantity,
+        total: price * quantity,
+      },
+    ]);
+  }
 
   const subtotal = cart.reduce(
     (sum, item) => sum + item.total,
@@ -53,7 +49,8 @@ function addToCart() {
   );
 
   const total = subtotal + 300;
-    return (
+
+  return (
     <main
       style={{
         minHeight: "100vh",
@@ -62,44 +59,9 @@ function addToCart() {
         fontFamily: "Arial",
       }}
     >
-      <Link
-  href="/"
-  style={{
-    width: "50px",
-    height: "50px",
-    borderRadius: "50%",
-    background: "#F5E9E2",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textDecoration: "none",
-    color: "#160029",
-    fontSize: "24px",
-    boxShadow: "0 8px 20px rgba(0,0,0,.08)",
-    marginBottom: "20px",
-  }}
->
-  ←
-</Link>
-      <h1
-        style={{
-          color: "#FF4F9F",
-          textAlign: "center",
-          fontSize: "2.5rem",
-        }}
-      >
-        🎀 Place Order
-      </h1>
+      <Link href="/">←</Link>
 
-      <p
-        style={{
-          textAlign: "center",
-          color: "#7A4D7C",
-          marginBottom: "40px",
-        }}
-      >
-        Batch 1 • Order taking until June 21 ✨
-      </p>
+      <h1>🎀 Place Order</h1>
 
       <div
         style={{
@@ -167,24 +129,21 @@ function addToCart() {
           marginBottom: "30px",
         }}
       >
-
-
         <p>Total Products: {products.length}</p>
 
-<select
-  value={product}
-  onChange={(e) => setProduct(e.target.value)}
-  style={inputStyle}
->
-  <option value="">Select Product</option>
+        <select
+          value={product}
+          onChange={(e) => setProduct(e.target.value)}
+          style={inputStyle}
+        >
+          <option value="">Select Product</option>
 
-  {products.map((p) => (
-    <option key={p.code} value={p.code}>
-      {p.code} - {p.name}
-    </option>
-  ))}
-</select>
-      
+          {products.map((p) => (
+            <option key={p.code} value={p.code}>
+              {p.code} - {p.name}
+            </option>
+          ))}
+        </select>
 
         <input
           type="number"
@@ -209,24 +168,17 @@ function addToCart() {
           }}
         >
           🛒 Add To Cart
-        
+        </button>
+      </div>
 
-  <p>Total Products: {products.length}</p>
-
-  <select
-    value={product}
-    onChange={(e) => setProduct(e.target.value)}
-    style={inputStyle}
-  >
-    <option value="">Select Product</option>
-
-    {products.map((p) => (
-      <option key={p.code} value={p.code}>
-        {p.code} - {p.name}
-      </option>
-    ))}
-  </select>
-      
+      <div
+        style={{
+          background: "#E9D9FF",
+          padding: "30px",
+          borderRadius: "30px",
+          marginBottom: "30px",
+        }}
+      >
         <h2>💗 Order Cart</h2>
 
         {cart.length === 0 && (
@@ -247,19 +199,10 @@ function addToCart() {
             }}
           >
             <div>
-              <div>
-                <strong>{item.code}</strong>
-              </div>
-
+              <strong>{item.code}</strong>
               <div>{item.name}</div>
-
-              <div>
-                Qty: {item.quantity}
-              </div>
-
-              <div>
-                ₱{item.total}
-              </div>
+              <div>Qty: {item.quantity}</div>
+              <div>₱{item.total}</div>
             </div>
 
             <button
@@ -268,14 +211,6 @@ function addToCart() {
                   cart.filter((_, i) => i !== index)
                 )
               }
-              style={{
-                background: "#FF4F9F",
-                color: "white",
-                border: "none",
-                borderRadius: "15px",
-                padding: "10px 15px",
-                cursor: "pointer",
-              }}
             >
               Remove
             </button>
@@ -292,7 +227,7 @@ function addToCart() {
 
         <h2>Total: ₱{total}</h2>
       </div>
-        
+
       <div
         style={{
           background: "#E9F3FF",
@@ -315,7 +250,6 @@ function addToCart() {
         </select>
 
         <textarea
-          placeholder="Additional notes (optional)"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           style={{
@@ -334,7 +268,6 @@ function addToCart() {
           padding: "25px",
           borderRadius: "25px",
           fontSize: "22px",
-          cursor: "pointer",
         }}
       >
         💗 Submit Order
