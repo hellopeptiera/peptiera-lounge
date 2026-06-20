@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ProfilePage() {
   const [fullName, setFullName] = useState("");
@@ -94,18 +94,34 @@ export default function ProfilePage() {
         />
 
         <button
-          style={{
-            background: "#FF5CA8",
-            color: "white",
-            border: "none",
-            padding: "20px",
-            width: "100%",
-            borderRadius: "25px",
-            cursor: "pointer",
-          }}
-        >
-          💗 Save Profile
-        </button>
+  onClick={() => {
+    localStorage.setItem(
+      "profile",
+      JSON.stringify({
+        fullName,
+        nickname,
+        platform,
+        phone,
+        province,
+        city,
+        address,
+      })
+    );
+
+    alert("Profile saved successfully!");
+  }}
+  style={{
+    background: "#FF5CA8",
+    color: "white",
+    border: "none",
+    padding: "20px",
+    width: "100%",
+    borderRadius: "25px",
+    cursor: "pointer",
+  }}
+>
+  💗 Save Profile
+</button>
       </div>
     </main>
   );
