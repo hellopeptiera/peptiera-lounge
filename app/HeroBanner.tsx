@@ -1,4 +1,20 @@
+"use client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 export default function HeroBanner() {
+  const [orderCount, setOrderCount] =
+    useState(0);
+  useEffect(() => {
+    const savedOrders =
+      JSON.parse(
+        localStorage.getItem(
+          "orders"
+        ) || "[]"
+      );
+    setOrderCount(
+      savedOrders.length
+    );
+  }, []);
   const cards = [
     {
       title: "Batch Status",
@@ -9,7 +25,8 @@ export default function HeroBanner() {
     },
     {
       title: "My Orders",
-      value: "0",
+      value:
+        orderCount.toString(),
       emoji: "📦",
       bg: "#FFF8E6",
       circle: "#FFE9A9",
@@ -22,132 +39,137 @@ export default function HeroBanner() {
       circle: "#FFD1E8",
     },
     {
-      title: "Outstanding Balance",
+      title:
+        "Outstanding Balance",
       value: "₱0",
       emoji: "👛",
       bg: "#FFF1F7",
       circle: "#FFD8E9",
     },
-  ];
-  return (
-    <>
+    {cards.map((card) =>
+  card.title ===
+  "My Orders" ? (
+    <Link
+      href="/orders"
+      key={card.title}
+      style={{
+        textDecoration:
+          "none",
+        color: "inherit",
+      }}
+    >
       <div
         style={{
-          background: "#FFFFFF",
-          borderRadius: "32px",
-          padding: "40px",
-          boxShadow: "0 8px 24px rgba(0,0,0,.06)",
-          marginBottom: "30px",
+          background: card.bg,
+          borderRadius: "28px",
+          padding: "25px",
+          display: "flex",
+          justifyContent:
+            "space-between",
+          alignItems:
+            "center",
+          cursor: "pointer",
+          transition:
+            ".2s",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "30px",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                color: "#806C79",
-                fontSize: "18px",
-                marginBottom: "10px",
-              }}
-            >
-              Welcome back,
-            </div>
-            <h1
-              style={{
-                color: "#16131F",
-                fontSize: "64px",
-                margin: 0,
-                fontWeight: 500,
-              }}
-            >
-              Tammy ♡
-            </h1>
-            <p
-              style={{
-                color: "#806C79",
-                marginTop: "16px",
-                fontSize: "16px",
-              }}
-            >
-              Thank you for being part of Peptiéra.
-            </p>
-          </div>
+        <div>
           <div
             style={{
               color: "#806C79",
-              fontStyle: "italic",
-              fontSize: "18px",
-              lineHeight: "1.8",
+              fontSize: "14px",
             }}
           >
-            ✨ Small daily choices
-            <br />
-            create big transformations.
+            {card.title}
           </div>
+          <div
+            style={{
+              color: "#290087",
+              fontSize: "32px",
+              fontWeight:
+                "bold",
+              marginTop:
+                "10px",
+            }}
+          >
+            {card.value}
+          </div>
+        </div>
+        <div
+          style={{
+            width: "70px",
+            height: "70px",
+            borderRadius:
+              "50%",
+            background:
+              card.circle,
+            display: "flex",
+            justifyContent:
+              "center",
+            alignItems:
+              "center",
+            fontSize: "32px",
+          }}
+        >
+          {card.emoji}
+        </div>
+      </div>
+    </Link>
+  ) : (
+        <div
+      key={card.title}
+      style={{
+        background: card.bg,
+        borderRadius: "28px",
+        padding: "25px",
+        display: "flex",
+        justifyContent:
+          "space-between",
+        alignItems: "center",
+      }}
+    >
+      <div>
+        <div
+          style={{
+            color: "#806C79",
+            fontSize: "14px",
+          }}
+        >
+          {card.title}
+        </div>
+        <div
+          style={{
+            color: "#290087",
+            fontSize: "32px",
+            fontWeight: "bold",
+            marginTop: "10px",
+          }}
+        >
+          {card.value}
         </div>
       </div>
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(250px,1fr))",
-          gap: "20px",
+          width: "70px",
+          height: "70px",
+          borderRadius: "50%",
+          background:
+            card.circle,
+          display: "flex",
+          justifyContent:
+            "center",
+          alignItems:
+            "center",
+          fontSize: "32px",
         }}
       >
-        {cards.map((card) => (
-          <div
-            key={card.title}
-            style={{
-              background: card.bg,
-              borderRadius: "28px",
-              padding: "25px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  color: "#806C79",
-                  fontSize: "14px",
-                }}
-              >
-                {card.title}
-              </div>
-              <div
-                style={{
-                  color: "#290087",
-                  fontSize: "32px",
-                  fontWeight: "bold",
-                  marginTop: "10px",
-                }}
-              >
-                {card.value}
-              </div>
-            </div>
-            <div
-              style={{
-                width: "70px",
-                height: "70px",
-                borderRadius: "50%",
-                background: card.circle,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                fontSize: "32px",
-              }}
-            >
-              {card.emoji}
-            </div>
-          </div>
-        ))}
+        {card.emoji}
+      </div>
+    </div>
+  )
+)}
       </div>
     </>
   );
 }
+  ];
