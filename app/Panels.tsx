@@ -1,4 +1,4 @@
-import DosageCard from "./DoasageCard";
+import DosageCard from "./DosageCard";
 export default function Panels() {
   return (
     <div
@@ -39,7 +39,7 @@ export default function Panels() {
         </div>
       </div>
 
-          <DoasageCard />
+          <DosageCard />
       
       {/* Tutorials */}
       <div
