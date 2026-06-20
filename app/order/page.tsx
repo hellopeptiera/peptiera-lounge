@@ -292,7 +292,7 @@ function addToCart() {
 
         <h2>Total: ₱{total}</h2>
       </div>
-
+        
       <div
         style={{
           background: "#E9F3FF",
