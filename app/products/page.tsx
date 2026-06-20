@@ -1,11 +1,8 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
-
 export default function ProductsPage() {
   const [cart, setCart] = useState<any[]>([]);
-
   const products = [
     { name: "TR15", price: 749 },
     { name: "TR30", price: 899 },
@@ -17,12 +14,10 @@ export default function ProductsPage() {
     { name: "BAC 10", price: 115 },
     { name: "Sterile 3cc", price: 10 },
   ];
-
   function addToCart(product: any) {
     const existing = cart.find(
       (item) => item.name === product.name
     );
-
     if (existing) {
       setCart(
         cart.map((item) =>
@@ -44,13 +39,11 @@ export default function ProductsPage() {
       ]);
     }
   }
-
   function removeFromCart(index: number) {
     setCart(
       cart.filter((_, i) => i !== index)
     );
   }
-
   function increaseQty(index: number) {
     setCart(
       cart.map((item, i) =>
@@ -63,7 +56,6 @@ export default function ProductsPage() {
       )
     );
   }
-
   function decreaseQty(index: number) {
     setCart(
       cart
@@ -80,15 +72,36 @@ export default function ProductsPage() {
         )
     );
   }
-
   const total = cart.reduce(
     (sum, item) =>
       sum + item.price * item.quantity,
     0
   );
-
+  function placeOrder() {
+    const existingOrders =
+      JSON.parse(
+        localStorage.getItem(
+          "orders"
+        ) || "[]"
+      );
+    const newOrder = {
+      id: Date.now(),
+      status: "Pending Payment",
+      items: cart,
+      total,
+    };
+    localStorage.setItem(
+      "orders",
+      JSON.stringify([
+        ...existingOrders,
+        newOrder,
+      ])
+    );
+    window.location.href =
+      "/orders";
+  }
   return (
-    <div
+        <div
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
@@ -114,7 +127,6 @@ export default function ProductsPage() {
       >
         ←
       </Link>
-
       <h1
         style={{
           color: "#290087",
@@ -123,7 +135,6 @@ export default function ProductsPage() {
       >
         🛒 On Hand Products
       </h1>
-
       <div
         style={{
           display: "grid",
@@ -138,11 +149,9 @@ export default function ProductsPage() {
             className="card"
           >
             <h2>{product.name}</h2>
-
             <p>
               ₱{product.price} / vial
             </p>
-
             <button
               onClick={() =>
                 addToCart(product)
@@ -153,18 +162,15 @@ export default function ProductsPage() {
           </div>
         ))}
       </div>
-
       <div
         style={{
           marginTop: "50px",
         }}
       >
         <h2>🛒 Order Cart</h2>
-
         {cart.length === 0 && (
           <p>No items added yet.</p>
         )}
-
         {cart.map((item, index) => (
           <div
             key={index}
@@ -174,7 +180,6 @@ export default function ProductsPage() {
             }}
           >
             <h3>{item.name}</h3>
-
             <div
               style={{
                 display: "flex",
@@ -189,11 +194,9 @@ export default function ProductsPage() {
               >
                 -
               </button>
-
               <strong>
                 {item.quantity}
               </strong>
-
               <button
                 onClick={() =>
                   increaseQty(index)
@@ -202,7 +205,6 @@ export default function ProductsPage() {
                 +
               </button>
             </div>
-
             <p>
               ₱
               {(
@@ -210,7 +212,6 @@ export default function ProductsPage() {
                 item.quantity
               ).toLocaleString()}
             </p>
-
             <button
               onClick={() =>
                 removeFromCart(index)
@@ -220,36 +221,27 @@ export default function ProductsPage() {
             </button>
           </div>
         ))}
-
         <h2>
           Grand Total:
           ₱{total.toLocaleString()}
         </h2>
-
         {cart.length > 0 && (
-          <Link href="/checkout">
-            <button
-              onClick={() =>
-                localStorage.setItem(
-                  "cart",
-                  JSON.stringify(cart)
-                )
-              }
-              style={{
-                background: "#FF5CA8",
-                color: "white",
-                border: "none",
-                width: "100%",
-                padding: "20px",
-                borderRadius: "25px",
-                fontSize: "18px",
-                cursor: "pointer",
-                marginTop: "20px",
-              }}
-            >
-              💗 Proceed to Checkout
-            </button>
-          </Link>
+          <button
+            onClick={placeOrder}
+            style={{
+              background: "#FF5CA8",
+              color: "white",
+              border: "none",
+              width: "100%",
+              padding: "20px",
+              borderRadius: "25px",
+              fontSize: "18px",
+              cursor: "pointer",
+              marginTop: "20px",
+            }}
+          >
+            💗 Order Now
+          </button>
         )}
       </div>
     </div>
