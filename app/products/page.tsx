@@ -32,7 +32,7 @@ export default function ProductsPage() {
           marginBottom: "30px",
         }}
       >
-        🛒 Products
+        🛒 On Hand Products
       </h1>
       <div
         style={{
@@ -43,30 +43,47 @@ export default function ProductsPage() {
       >
         <div className="card">
           <h2>TR15</h2>
-          <p>₱649 / vial</p>
-          <p>MOQ: 10 vials</p>
-          <p>Progress: 0/10</p>
+          <p>₱749 / vial</p>
           <button>Add to Order</button>
         </div>
         <div className="card">
           <h2>TR30</h2>
           <p>₱899 / vial</p>
-          <p>MOQ: 10 vials</p>
-          <p>Progress: 0/10</p>
           <button>Add to Order</button>
         </div>
         <div className="card">
           <h2>GHK-Cu 100</h2>
-          <p>₱449 / vial</p>
-          <p>MOQ: 10 vials</p>
-          <p>Progress: 0/10</p>
+          <p>₱649 / vial</p>
+          <button>Add to Order</button>
+        </div>
+        <div className="card">
+          <h2>GHK-Cu 50</h2>
+          <p>₱529 / vial</p>
           <button>Add to Order</button>
         </div>
         <div className="card">
           <h2>GTT1500</h2>
-          <p>₱699 / vial</p>
-          <p>MOQ: 10 vials</p>
-          <p>Progress: 0/10</p>
+          <p>₱799 / vial</p>
+          <button>Add to Order</button>
+        </div>
+        <div className="card">
+          <h2>LB 50</h2>
+          <p>₱999 / vial</p>
+          <button>Add to Order</button>
+        </div>
+        <div className="card">
+          <h2>BAC 3</h2>
+          <p>₱95 / vial</p>
+          <button>Add to Order</button>
+        </div>
+        <div className="card">
+          <h2>BAC 10</h2>
+          <p>₱115 / vial</p>
+          <button>Add to Order</button>
+        </div>
+        <div className="card">
+          <h2>Sterile 3cc</h2>
+          <p>₱10 / </p>
           <button>Add to Order</button>
         </div>
       </div>
