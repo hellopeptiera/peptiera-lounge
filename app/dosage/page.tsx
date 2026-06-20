@@ -54,16 +54,17 @@ export default function DosagePage() {
             outline: "none",
           }}
         />
-        <select
-          size={10}
-          value={product}
-          onChange={(e) => setProduct(Number(e.target.value))}
-          style={{
-            width: "100%",
-            borderRadius: "18px",
-            padding: "10px",
-          }}
-        >
+       <select
+  value={product}
+  onChange={(e) => setProduct(Number(e.target.value))}
+  style={{
+    width: "100%",
+    padding: "14px",
+    borderRadius: "18px",
+    border: "1px solid #E5D9F2",
+    outline: "none",
+  }}
+>
           {products
             .filter(
               (item) =>
