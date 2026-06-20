@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { products } from "../productsData";
 
 export default function OrderPage() {
   const [fullName, setFullName] = useState("");
@@ -11,7 +12,7 @@ export default function OrderPage() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  const [category, setCategory] = useState("Weight Management");
+
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -20,61 +21,31 @@ export default function OrderPage() {
 
   const [cart, setCart] = useState<any[]>([]);
 
-  const products = [
-    {
-      category: "Weight Management",
-      code: "TR15",
-      name: "Tirzepatide 15mg",
-      price: 429,
-    },
-    {
-      category: "Weight Management",
-      code: "TR30",
-      name: "Tirzepatide 30mg",
-      price: 605,
-    },
-    {
-      category: "Weight Management",
-      code: "RT15",
-      name: "Retatrutide 15mg",
-      price: 693,
-    },
-    {
-      category: "Skin & Beauty",
-      code: "CU100",
-      name: "GHK-Cu 100mg",
-      price: 284,
-    },
-    {
-      category: "Skin & Beauty",
-      code: "GTT1500",
-      name: "Glutathione 1500mg",
-      price: 448,
-    },
-    {
-      category: "Lemon Bottle",
-      code: "LB50",
-      name: "Lemon Bottle 50ml",
-      price: 850,
-    },
-  ];
+ 
 
-  function addToCart() {
-    const selected = products.find(
-      (p) => p.code === product
+function addToCart() {
+  const selected = products.find(
+    (p) => p.code === product
+  );
+
+  if (!selected) return;
+
+  const price =
+    Number(
+      selected.price
+        .replace("₱", "")
+        .replace(/,/g, "")
     );
 
-    if (!selected) return;
-
-    setCart([
-      ...cart,
-      {
-        ...selected,
-        quantity,
-        total: selected.price * quantity,
-      },
-    ]);
-  }
+  setCart([
+    ...cart,
+    {
+      ...selected,
+      quantity,
+      total: price * quantity,
+    },
+  ]);
+}
 
   const subtotal = cart.reduce(
     (sum, item) => sum + item.total,
@@ -196,33 +167,22 @@ export default function OrderPage() {
           marginBottom: "30px",
         }}
       >
-        <h2>🛍 Add Products</h2>
 
+
+        
         <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          style={inputStyle}
-        >
-          <option>Weight Management</option>
-          <option>Skin & Beauty</option>
-          <option>Lemon Bottle</option>
-        </select>
+  value={product}
+  onChange={(e) => setProduct(e.target.value)}
+  style={inputStyle}
+>
+  <option value="">Select Product</option>
 
-        <select
-          value={product}
-          onChange={(e) => setProduct(e.target.value)}
-          style={inputStyle}
-        >
-          <option value="">Select Product</option>
-
-          {products
-            .filter((p) => p.category === category)
-            .map((p) => (
-              <option key={p.code} value={p.code}>
-                {p.code} - {p.name}
-              </option>
-            ))}
-        </select>
+  {products.map((p) => (
+    <option key={p.code} value={p.code}>
+      {p.code} - {p.name}
+    </option>
+  ))}
+</select>
 
         <input
           type="number"
