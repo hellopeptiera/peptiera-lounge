@@ -1,3 +1,4 @@
+import DosageCard from "./DosageCard";
 export default function Panels() {
   return (
     <div
@@ -37,6 +38,9 @@ export default function Panels() {
           <div>⚪ Delivered</div>
         </div>
       </div>
+
+          <DosageCard />
+      
       {/* Tutorials */}
       <div
         style={{
