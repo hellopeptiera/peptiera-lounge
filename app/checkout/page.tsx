@@ -31,11 +31,17 @@ export default function CheckoutPage() {
       setCart(JSON.parse(savedCart));
     }
   }, []);
-  const total = cart.reduce(
-    (sum, item) =>
-      sum + item.price * item.quantity,
-    0
-  );
+const productsTotal = cart.reduce(
+  (sum, item) =>
+    sum + item.price * item.quantity,
+  0
+);
+
+const shippingFee = 250;
+
+const total =
+  productsTotal + shippingFee;
+  
   function submitOrder() {
   setSubmitting(true);
   const orders = JSON.parse(
@@ -214,18 +220,7 @@ export default function CheckoutPage() {
             </div>
           </div>
         ))}
-        <p>
-          Products Total:
-          ₱{total.toLocaleString()}
-        </p>
-        <h2
-          style={{
-            color: "#5A2EA6",
-          }}
-        >
-          Grand Total:
-          ₱{total.toLocaleString()}
-        </h2>
+       
      <button
   onClick={submitOrder}
   disabled={
