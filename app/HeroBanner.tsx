@@ -31,21 +31,7 @@ export default function HeroBanner() {
       bg: "#FFF8E6",
       circle: "#FFE9A9",
     },
-    {
-      title: "Hearts Club",
-      value: "0",
-      emoji: "💗",
-      bg: "#FFEAF7",
-      circle: "#FFD1E8",
-    },
-    {
-      title:
-        "Outstanding Balance",
-      value: "₱0",
-      emoji: "👛",
-      bg: "#FFF1F7",
-      circle: "#FFD8E9",
-    },
+    
     {cards.map((card) =>
   card.title ===
   "My Orders" ? (
