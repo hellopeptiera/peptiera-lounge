@@ -236,8 +236,8 @@ export const products = [
     name: "Epithalon 50mg",
     price: "₱1040",
     weight: 0.01,
-  }
-          {
+  },
+  {
     category: "Growth Hormones",
     code: "TSM2",
     name: "Tesamorelin 2mg",
@@ -383,8 +383,8 @@ export const products = [
     name: "Bacteriostatic Water 3ml",
     price: "₱57",
     weight: 0.01,
-  }
-          {
+  },
+  {
     category: "Supplies",
     code: "AA10",
     name: "Acetic Acid Water 10ml",
