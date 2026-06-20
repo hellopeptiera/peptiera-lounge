@@ -1,4 +1,4 @@
-import DosageCard from "./DosageCard";
+import DosageCard from "./DoasageCard";
 export default function Panels() {
   return (
     <div
