@@ -83,7 +83,7 @@ export default function ProductsPage() {
         </div>
         <div className="card">
           <h2>Sterile 3cc</h2>
-          <p>₱10 / </p>
+          <p>₱10 / PC </p>
           <button>Add to Order</button>
         </div>
       </div>
