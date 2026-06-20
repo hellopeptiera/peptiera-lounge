@@ -5,8 +5,9 @@ import { products } from "../productsData";
 
 export default function DosagePage() {
   const [product, setProduct] = useState(
-  parseFloat(products[0].name.match(/\d+(\.\d+)?/)?.[0] || "0")
-);
+    parseFloat(products[0].name.match(/\d+(\.\d+)?/)?.[0] || "1")
+  );
+
   const [bacWater, setBacWater] = useState("");
   const [dose, setDose] = useState("");
 
@@ -51,20 +52,22 @@ export default function DosagePage() {
       <div className="card">
         <h2>Select Product</h2>
 
-       <select
-  value={product}
-  onChange={(e) => setProduct(Number(e.target.value))}
->
-  {products.map((item) => (
-    <option
-      key={item.code}
-      value={parseFloat(item.name.match(/\d+(\.\d+)?/)?.[0] || "0")}
-    >
-      {item.name}
-    </option>
-  ))}
-</select>
-        
+        <select
+          value={product}
+          onChange={(e) => setProduct(Number(e.target.value))}
+        >
+          {products.map((item) => (
+            <option
+              key={item.code}
+              value={parseFloat(
+                item.name.match(/\d+(\.\d+)?/)?.[0] || "1"
+              )}
+            >
+              {item.name}
+            </option>
+          ))}
+        </select>
+
         <br />
         <br />
 
