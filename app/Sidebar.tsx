@@ -3,6 +3,7 @@ import Link from "next/link";
 export default function Sidebar() {
   const links = [
     { emoji: "🏠", title: "Dashboard", href: "/" },
+    { emoji: "💰", title: "Pricelist", href: "/pricelist" },
     { emoji: "🛍️", title: "Group Buy", href: "/products" },
     { emoji: "📦", title: "My Orders", href: "/tracker" },
     { emoji: "📈", title: "Journey Tracker", href: "/progress" },
