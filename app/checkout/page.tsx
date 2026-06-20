@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 export default function CheckoutPage() {
   const [fullName, setFullName] = useState("");
@@ -12,6 +12,19 @@ export default function CheckoutPage() {
     useState("GCash");
   const [shippingMethod, setShippingMethod] =
     useState("J&T Express");
+  useEffect(() => {
+    const savedProfile =
+      localStorage.getItem("profile");
+    if (savedProfile) {
+      const profile = JSON.parse(savedProfile);
+      setFullName(profile.fullName || "");
+      setUsername(
+        profile.platform || ""
+      );
+      setPhone(profile.phone || "");
+      setAddress(profile.address || "");
+    }
+  }, []);
   return (
     <main
       style={{
@@ -50,7 +63,7 @@ export default function CheckoutPage() {
       >
         💗 Checkout
       </h1>
-      <div
+            <div
         style={{
           background: "#F7D9E8",
           padding: "30px",
@@ -60,20 +73,14 @@ export default function CheckoutPage() {
       >
         <h2>Customer Information</h2>
         <input
-          placeholder="Full Name"
           value={fullName}
-          onChange={(e) =>
-            setFullName(e.target.value)
-          }
           style={inputStyle}
+          readOnly
         />
         <input
-          placeholder="Telegram / Discord Username"
           value={username}
-          onChange={(e) =>
-            setUsername(e.target.value)
-          }
           style={inputStyle}
+          readOnly
         />
         <select
           value={platform}
@@ -86,23 +93,17 @@ export default function CheckoutPage() {
           <option>Discord</option>
         </select>
         <input
-          placeholder="Phone Number"
           value={phone}
-          onChange={(e) =>
-            setPhone(e.target.value)
-          }
           style={inputStyle}
+          readOnly
         />
         <input
-          placeholder="Complete Address"
           value={address}
-          onChange={(e) =>
-            setAddress(e.target.value)
-          }
           style={inputStyle}
+          readOnly
         />
-              </div>
-      <div
+      </div>
+            <div
         style={{
           background: "#E9D9FF",
           padding: "30px",
@@ -145,7 +146,7 @@ export default function CheckoutPage() {
           <option>Pickup</option>
         </select>
       </div>
-      <div
+            <div
         style={{
           background: "white",
           padding: "30px",
@@ -162,8 +163,7 @@ export default function CheckoutPage() {
         >
           Grand Total: ₱0
         </h2>
-        
-                <button
+        <button
           style={{
             background: "#FF4F9F",
             color: "white",
