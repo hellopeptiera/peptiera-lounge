@@ -49,7 +49,7 @@ export default function OrdersPage() {
       >
         📦 My Orders
       </h1>
-            {orders.length === 0 && (
+      {orders.length === 0 && (
         <p>No orders yet.</p>
       )}
       {orders.map((order, index) => (
@@ -63,120 +63,181 @@ export default function OrdersPage() {
           }}
         >
           <h2>
-            Order #{index + 1}
+            Order #
+            {(index + 1)
+              .toString()
+              .padStart(4, "0")}
           </h2>
-          <p>
-  Status:{" "}
-  {order.status ===
-  "Pending Payment" ? (
-    <strong
-      style={{
-        color: "#FFB300",
-      }}
-    >
-      🟡 Pending Payment
-    </strong>
-  ) : (
-    <strong
-      style={{
-        color: "#4CAF50",
-      }}
-    >
-      🟢 Order Placed
-    </strong>
-  )}
-</p>
-
-{order.items.map(
-  (
-    item: any,
-    itemIndex: number
-  ) => (
-    <div
-      key={itemIndex}
-      style={{
-        marginBottom: "15px",
-      }}
-    >
-      <strong>{item.name}</strong>
-
-      <div>
-        Qty: {item.quantity}
-      </div>
-
-      <div>
-        ₱
-        {(
-          item.price *
-          item.quantity
-        ).toLocaleString()}
-      </div>
-    </div>
-  )
-)}
-
-<hr />
-
-<h3>
-  Total:
-  ₱
-  {order.total.toLocaleString()}
-</h3>
-
-{order.status ===
-  "Pending Payment" && (
-  <>
-    <Link href="/checkout">
-      <button
-        style={{
-          background: "#FF4F9F",
-          color: "white",
-          border: "none",
-          padding: "15px 25px",
-          borderRadius: "20px",
-          cursor: "pointer",
-          marginRight: "15px",
-        }}
-      >
-        💳 Proceed to Checkout
-      </button>
-    </Link>
-
-    <button
-      onClick={() =>
-        cancelOrder(order.id)
-      }
-      style={{
-        background: "#E57373",
-        color: "white",
-        border: "none",
-        padding: "15px 25px",
-        borderRadius: "20px",
-        cursor: "pointer",
-      }}
-    >
-      ❌ Cancel Order
-    </button>
-  </>
-)}
-
-{order.status ===
-  "Order Placed" && (
-  <button
-    style={{
-      background: "#4CAF50",
-      color: "white",
-      border: "none",
-      padding: "15px 25px",
-      borderRadius: "20px",
-      cursor: "default",
-    }}
-  >
-    ✅ Order Placed
-  </button>
-)}
+                    <p>
+            Status:{" "}
+            {order.status ===
+              "Pending Payment" && (
+              <strong
+                style={{
+                  color: "#FFB300",
+                }}
+              >
+                🟡 Pending Payment
+              </strong>
+            )}
+            {order.status ===
+              "Paid" && (
+              <strong
+                style={{
+                  color: "#9C27B0",
+                }}
+              >
+                🟣 Paid
+              </strong>
+            )}
+            {order.status ===
+              "Preparing" && (
+              <strong
+                style={{
+                  color: "#FF9800",
+                }}
+              >
+                🟠 Preparing
+              </strong>
+            )}
+            {order.status ===
+              "Shipped" && (
+              <strong
+                style={{
+                  color: "#2196F3",
+                }}
+              >
+                🔵 Shipped
+              </strong>
+            )}
+            {order.status ===
+              "Delivered" && (
+              <strong
+                style={{
+                  color: "#4CAF50",
+                }}
+              >
+                🟢 Delivered
+              </strong>
+            )}
+          </p>
+          {order.items.map(
+            (
+              item: any,
+              itemIndex: number
+            ) => (
+              <div
+                key={itemIndex}
+                style={{
+                  marginBottom:
+                    "15px",
+                }}
+              >
+                <strong>
+                  {item.name}
+                </strong>
+                <div>
+                  Qty:
+                  {item.quantity}
+                </div>
+                <div>
+                  ₱
+                  {(
+                    item.price *
+                    item.quantity
+                  ).toLocaleString()}
+                </div>
+              </div>
+            )
+          )}
+          <hr />
+          <h3>
+            Total:
+            ₱
+            {order.total.toLocaleString()}
+          </h3>
+                    {order.status ===
+            "Pending Payment" && (
+            <>
+              <Link href="/checkout">
+                <button
+                  style={{
+                    background:
+                      "#FF4F9F",
+                    color: "white",
+                    border: "none",
+                    padding:
+                      "15px 25px",
+                    borderRadius:
+                      "20px",
+                    cursor:
+                      "pointer",
+                    marginRight:
+                      "15px",
+                  }}
+                >
+                  💳 Proceed to
+                  Checkout
+                </button>
+              </Link>
+              <button
+                onClick={() =>
+                  cancelOrder(
+                    order.id
+                  )
+                }
+                style={{
+                  background:
+                    "#E57373",
+                  color: "white",
+                  border: "none",
+                  padding:
+                    "15px 25px",
+                  borderRadius:
+                    "20px",
+                  cursor:
+                    "pointer",
+                }}
+              >
+                ❌ Cancel Order
+              </button>
+            </>
+          )}
+          {order.status !==
+            "Pending Payment" && (
+            <div
+              style={{
+                marginTop:
+                  "20px",
+                background:
+                  "#E8F5E9",
+                padding: "20px",
+                borderRadius:
+                  "20px",
+              }}
+            >
+              <h3
+                style={{
+                  color:
+                    "#4CAF50",
+                }}
+              >
+                ✅
+                {order.status}
+              </h3>
+              <p>
+                Thank you
+                for ordering
+                with
+                Peptiéra.
+                Your order
+                is being
+                processed.
+              </p>
+            </div>
+          )}
         </div>
       ))}
-          </main>
+    </main>
   );
 }
