@@ -39,7 +39,7 @@ export default function Panels() {
         </div>
       </div>
 
-          <DosageCard />
+          <DoasageCard />
       
       {/* Tutorials */}
       <div
