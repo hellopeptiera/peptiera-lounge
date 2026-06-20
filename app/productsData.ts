@@ -1,7 +1,5 @@
 export const products = [
 
-
-  const products = [
         { category: "Growth Hormones", code: "M10", name: "HGH 191AA 10iu", price: "₱315" },
     { category: "Growth Hormones", code: "M12", name: "HGH 191AA 12iu", price: "₱416" },
     { category: "Growth Hormones", code: "M15", name: "HGH 191AA 15mg", price: "₱460" },
@@ -201,5 +199,5 @@ export const products = [
 
     { category: "Skin & Beauty", code: "HHB", name: "Healthy Hair Skin Nails Blend", price: "₱756" },
       ];
-];
+
  
