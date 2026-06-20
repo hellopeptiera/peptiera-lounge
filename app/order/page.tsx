@@ -208,14 +208,30 @@ function addToCart() {
         >
           🛒 Add To Cart
         </button>
-      </div>
-            <div
-        style={{
-          background: "#FFE7F2",
-          padding: "30px",
-          borderRadius: "30px",
-          marginBottom: "30px",
-        }}
+     <div
+  style={{
+    background: "#E9D9FF",
+    padding: "30px",
+    borderRadius: "30px",
+    marginBottom: "30px",
+  }}
+>
+
+  <p>Total Products: {products.length}</p>
+
+  <select
+    value={product}
+    onChange={(e) => setProduct(e.target.value)}
+    style={inputStyle}
+  >
+    <option value="">Select Product</option>
+
+    {products.map((p) => (
+      <option key={p.code} value={p.code}>
+        {p.code} - {p.name}
+      </option>
+    ))}
+  </select>
       >
         <h2>💗 Order Cart</h2>
 
