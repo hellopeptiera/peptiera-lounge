@@ -12,6 +12,7 @@ export default function CheckoutPage() {
     useState("GCash");
   const [shippingMethod, setShippingMethod] =
     useState("J&T Express");
+  const [cart, setCart] = useState<any[]>([]);
   useEffect(() => {
     const savedProfile =
       localStorage.getItem("profile");
@@ -23,8 +24,19 @@ export default function CheckoutPage() {
       );
       setPhone(profile.phone || "");
       setAddress(profile.address || "");
+      const savedCart =
+  localStorage.getItem("cart");
+
+if (savedCart) {
+  setCart(JSON.parse(savedCart));
+}
     }
   }, []);
+  const total = cart.reduce(
+  (sum, item) =>
+    sum + item.price * item.quantity,
+  0
+);
   return (
     <main
       style={{
@@ -155,14 +167,49 @@ export default function CheckoutPage() {
         }}
       >
         <h2>🛒 Order Summary</h2>
-        <p>Products Total: ₱0</p>
-        <h2
-          style={{
-            color: "#5A2EA6",
-          }}
-        >
-          Grand Total: ₱0
-        </h2>
+
+{cart.length === 0 && (
+  <p>No items found.</p>
+)}
+
+{cart.map((item, index) => (
+  <div
+    key={index}
+    style={{
+      marginBottom: "15px",
+    }}
+  >
+    <strong>{item.name}</strong>
+
+    <div>
+      Qty: {item.quantity}
+    </div>
+
+    <div>
+      ₱
+      {(
+        item.price *
+        item.quantity
+      ).toLocaleString()}
+    </div>
+  </div>
+))}
+
+<hr />
+
+<p>
+  Products Total:
+  ₱{total.toLocaleString()}
+</p>
+
+<h2
+  style={{
+    color: "#5A2EA6",
+  }}
+>
+  Grand Total:
+  ₱{total.toLocaleString()}
+</h2>
         <button
           style={{
             background: "#FF4F9F",
