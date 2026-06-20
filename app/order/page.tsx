@@ -209,15 +209,7 @@ function addToCart() {
           }}
         >
           🛒 Add To Cart
-        </button>
-     <div
-  style={{
-    background: "#E9D9FF",
-    padding: "30px",
-    borderRadius: "30px",
-    marginBottom: "30px",
-  }}
->
+        
 
   <p>Total Products: {products.length}</p>
 
@@ -234,7 +226,7 @@ function addToCart() {
       </option>
     ))}
   </select>
-      >
+      
         <h2>💗 Order Cart</h2>
 
         {cart.length === 0 && (
