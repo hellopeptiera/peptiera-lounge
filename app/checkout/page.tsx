@@ -12,6 +12,8 @@ export default function CheckoutPage() {
     useState("GCash");
   const [shippingMethod, setShippingMethod] =
     useState("J&T Express");
+  const [submitting, setSubmitting] =
+  useState(false);
   const [cart, setCart] = useState<any[]>([]);
   useEffect(() => {
     const savedProfile =
@@ -19,24 +21,48 @@ export default function CheckoutPage() {
     if (savedProfile) {
       const profile = JSON.parse(savedProfile);
       setFullName(profile.fullName || "");
-      setUsername(
-        profile.platform || ""
-      );
+      setUsername(profile.platform || "");
       setPhone(profile.phone || "");
       setAddress(profile.address || "");
-      const savedCart =
-  localStorage.getItem("cart");
-
-if (savedCart) {
-  setCart(JSON.parse(savedCart));
-}
+    }
+    const savedCart =
+      localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
     }
   }, []);
   const total = cart.reduce(
-  (sum, item) =>
-    sum + item.price * item.quantity,
-  0
-);
+    (sum, item) =>
+      sum + item.price * item.quantity,
+    0
+  );
+  function submitOrder() {
+  setSubmitting(true);
+  const existingOrders =
+    JSON.parse(
+      localStorage.getItem(
+        "orders"
+      ) || "[]"
+    );
+  const newOrder = {
+    id: Date.now(),
+    items: cart,
+    total,
+    paymentMethod,
+    shippingMethod,
+    status: "Pending Payment",
+  };
+  localStorage.setItem(
+    "orders",
+    JSON.stringify([
+      ...existingOrders,
+      newOrder,
+    ])
+  );
+  localStorage.removeItem("cart");
+  window.location.href =
+    "/orders";
+}
   return (
     <main
       style={{
@@ -167,64 +193,68 @@ if (savedCart) {
         }}
       >
         <h2>🛒 Order Summary</h2>
-
-{cart.length === 0 && (
-  <p>No items found.</p>
-)}
-
-{cart.map((item, index) => (
-  <div
-    key={index}
-    style={{
-      marginBottom: "15px",
-    }}
-  >
-    <strong>{item.name}</strong>
-
-    <div>
-      Qty: {item.quantity}
-    </div>
-
-    <div>
-      ₱
-      {(
-        item.price *
-        item.quantity
-      ).toLocaleString()}
-    </div>
-  </div>
-))}
-
-<hr />
-
-<p>
-  Products Total:
-  ₱{total.toLocaleString()}
-</p>
-
-<h2
-  style={{
-    color: "#5A2EA6",
-  }}
->
-  Grand Total:
-  ₱{total.toLocaleString()}
-</h2>
-        <button
+        {cart.length === 0 && (
+          <p>No items found.</p>
+        )}
+        {cart.map((item, index) => (
+          <div
+            key={index}
+            style={{
+              marginBottom: "20px",
+              paddingBottom: "20px",
+              borderBottom:
+                "1px solid #EEE",
+            }}
+          >
+            <strong>{item.name}</strong>
+            <div>
+              Qty: {item.quantity}
+            </div>
+            <div>
+              ₱
+              {(
+                item.price *
+                item.quantity
+              ).toLocaleString()}
+            </div>
+          </div>
+        ))}
+        <p>
+          Products Total:
+          ₱{total.toLocaleString()}
+        </p>
+        <h2
           style={{
-            background: "#FF4F9F",
-            color: "white",
-            border: "none",
-            width: "100%",
-            padding: "25px",
-            borderRadius: "25px",
-            fontSize: "22px",
-            cursor: "pointer",
-            marginTop: "20px",
+            color: "#5A2EA6",
           }}
         >
-          💗 Submit Order
-        </button>
+          Grand Total:
+          ₱{total.toLocaleString()}
+        </h2>
+     <button
+  onClick={submitOrder}
+  disabled={
+    cart.length === 0 ||
+    submitting
+  }
+  style={{
+    background: "#FF4F9F",
+    color: "white",
+    border: "none",
+    width: "100%",
+    padding: "25px",
+    borderRadius: "25px",
+    fontSize: "22px",
+    cursor: "pointer",
+    marginTop: "20px",
+    opacity:
+      cart.length === 0
+        ? 0.5
+        : 1,
+  }}
+>
+  💗 Submit Order
+</button>
       </div>
     </main>
   );
