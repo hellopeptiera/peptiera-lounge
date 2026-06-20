@@ -4,7 +4,7 @@ export default function Sidebar() {
   const links = [
     { emoji: "🏠", title: "Dashboard", href: "/" },
     { emoji: "💰", title: "Pricelist", href: "/pricelist" },
-    { emoji: "🛍️", title: "Order Here", href: "/products" },
+    { emoji: "🛍️", title: "On Hand", href: "/products" },
     { emoji: "📦", title: "My Orders", href: "/tracker" },
     { emoji: "📈", title: "Progress Tracker", href: "/progress" },
     { emoji: "💉", title: "Dosage Calculator", href: "/dosage" },
