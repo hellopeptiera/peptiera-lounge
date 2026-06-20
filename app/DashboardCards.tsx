@@ -9,7 +9,7 @@ export default function DashboardCards() {
     { emoji: "🚚", title: "Shipments", href: "/shipping" },
     { emoji: "📚", title: "Guides", href: "/library" },
     { emoji: "📍", title: "Address Book", href: "/address" },
-    { emoji: "🎧", title: "Support", href: "/support" },
+
   ];
   return (
     <div
