@@ -40,7 +40,9 @@ export default function ProductsPage() {
     }
   }
   function removeFromCart(index: number) {
-    setCart(cart.filter((_, i) => i !== index));
+    setCart(
+      cart.filter((_, i) => i !== index)
+    );
   }
   function increaseQty(index: number) {
     setCart(
@@ -65,7 +67,9 @@ export default function ProductsPage() {
               }
             : item
         )
-        .filter((item) => item.quantity > 0)
+        .filter(
+          (item) => item.quantity > 0
+        )
     );
   }
   const total = cart.reduce(
@@ -73,8 +77,31 @@ export default function ProductsPage() {
       sum + item.price * item.quantity,
     0
   );
+  function placeOrder() {
+    const existingOrders =
+      JSON.parse(
+        localStorage.getItem(
+          "orders"
+        ) || "[]"
+      );
+    const newOrder = {
+      id: Date.now(),
+      status: "Pending Payment",
+      items: cart,
+      total,
+    };
+    localStorage.setItem(
+      "orders",
+      JSON.stringify([
+        ...existingOrders,
+        newOrder,
+      ])
+    );
+    window.location.href =
+      "/orders";
+  }
   return (
-    <div
+        <div
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
@@ -198,31 +225,25 @@ export default function ProductsPage() {
           Grand Total:
           ₱{total.toLocaleString()}
         </h2>
-        <h2>
-  Grand Total:
-  ₱{total.toLocaleString()}
-</h2>
-{cart.length > 0 && (
-  <Link href="/orders">
-    <button
-      style={{
-        background: "#FF5CA8",
-        color: "white",
-        border: "none",
-        width: "100%",
-        padding: "20px",
-        borderRadius: "25px",
-        fontSize: "18px",
-        cursor: "pointer",
-        marginTop: "20px",
-      }}
-    >
-      💗 Order Now
-    </button>
-  </Link>
-)}
+        {cart.length > 0 && (
+          <button
+            onClick={placeOrder}
+            style={{
+              background: "#FF5CA8",
+              color: "white",
+              border: "none",
+              width: "100%",
+              padding: "20px",
+              borderRadius: "25px",
+              fontSize: "18px",
+              cursor: "pointer",
+              marginTop: "20px",
+            }}
+          >
+            💗 Order Now
+          </button>
+        )}
       </div>
     </div>
   );
 }
-
