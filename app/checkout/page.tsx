@@ -162,6 +162,23 @@ export default function CheckoutPage() {
         >
           Grand Total: ₱0
         </h2>
+        <Link href="/orders">
+  <button
+    style={{
+      background: "#FF5CA8",
+      color: "white",
+      border: "none",
+      width: "100%",
+      padding: "20px",
+      borderRadius: "25px",
+      fontSize: "18px",
+      cursor: "pointer",
+      marginTop: "20px",
+    }}
+  >
+    💗 Order Now
+  </button>
+</Link>
                 <button
           style={{
             background: "#FF4F9F",
