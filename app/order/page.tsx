@@ -169,8 +169,9 @@ function addToCart() {
       >
 
 
-        
-        <select
+        <p>Total Products: {products.length}</p>
+
+<select
   value={product}
   onChange={(e) => setProduct(e.target.value)}
   style={inputStyle}
@@ -183,6 +184,7 @@ function addToCart() {
     </option>
   ))}
 </select>
+      
 
         <input
           type="number"
