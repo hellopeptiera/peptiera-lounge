@@ -6,13 +6,12 @@ export default function Sidebar() {
     { emoji: "💰", title: "Pricelist", href: "/pricelist" },
     { emoji: "🛍️", title: "Group Buy", href: "/products" },
     { emoji: "📦", title: "My Orders", href: "/tracker" },
-    { emoji: "📆", title: "Journey Tracker", href: "/progress" },
+    { emoji: "📈", title: "Progress Tracker", href: "/progress" },
     { emoji: "💉", title: "Dosage Calculator", href: "/dosage" },
     { emoji: "✏️", title: "Order Calculator", href: "/calculator" },
     { emoji: "🚚", title: "Shipments", href: "/shipping" },
     { emoji: "🔎", title: "Guides & Tutorials", href: "/library" },
     { emoji: "👤", title: "Profile", href: "/profile" },
-    { emoji: "💬", title: "Support", href: "/support" },
   ];
 
   return (
