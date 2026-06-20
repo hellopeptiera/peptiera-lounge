@@ -201,5 +201,5 @@ export const products = [
 
     { category: "Skin & Beauty", code: "HHB", name: "Healthy Hair Skin Nails Blend", price: "₱756" },
       ];
-
+];
  
