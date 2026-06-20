@@ -38,31 +38,26 @@ export default function CheckoutPage() {
   );
   function submitOrder() {
   setSubmitting(true);
-  const existingOrders =
-    JSON.parse(
-      localStorage.getItem(
-        "orders"
-      ) || "[]"
-    );
-  const newOrder = {
-    id: Date.now(),
-    items: cart,
-    total,
-    paymentMethod,
-    shippingMethod,
-    status: "Pending Payment",
-  };
+  const orders = JSON.parse(
+    localStorage.getItem("orders") || "[]"
+  );
+  const updatedOrders = orders.map(
+    (order: any) => ({
+      ...order,
+      paymentMethod,
+      shippingMethod,
+      status: "Order Placed",
+    })
+  );
   localStorage.setItem(
     "orders",
-    JSON.stringify([
-      ...existingOrders,
-      newOrder,
-    ])
+    JSON.stringify(updatedOrders)
   );
   localStorage.removeItem("cart");
-  window.location.href =
-    "/orders";
+  alert("Order has been placed!");
+  window.location.href = "/orders";
 }
+  
   return (
     <main
       style={{
