@@ -1,19 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { products } from "../productsData";
 
 export default function CalculatorPage() {
-  const products = [
-    { code: "TR15", price: 429, weight: 0.1 },
-    { code: "TR30", price: 605, weight: 0.1 },
-    { code: "CU100", price: 284, weight: 0.1 },
-    { code: "GTT1500", price: 448, weight: 0.25 },
-    { code: "BA3", price: 57, weight: 0.01 },
-    { code: "BA10", price: 70, weight: 0.02 },
-    { code: "LC600", price: 448, weight: 0.03 },
-    { code: "50AM", price: 693, weight: 0.01 },
-  ];
-
   const [items, setItems] = useState([
     { code: "", quantity: 0 },
     { code: "", quantity: 0 },
@@ -42,8 +32,16 @@ export default function CalculatorPage() {
     );
 
     if (product) {
-      productTotal += product.price * item.quantity;
-      totalWeight += product.weight * item.quantity;
+      const price = Number(
+        product.price
+          .replace("₱", "")
+          .replace(/,/g, "")
+      );
+
+      productTotal += price * item.quantity;
+
+      totalWeight +=
+        product.weight * item.quantity;
     }
   });
 
@@ -58,7 +56,9 @@ export default function CalculatorPage() {
   const extraBlocks = extraWeight / 0.5;
 
   const extraShippingPHP =
-    extraBlocks * extraHalfKgCost * usdRate;
+    extraBlocks *
+    extraHalfKgCost *
+    usdRate;
 
   const additionalShare =
     (totalWeight / totalShipmentWeight) *
@@ -69,7 +69,8 @@ export default function CalculatorPage() {
 
   const grandTotal =
     productTotal + estimatedShipping;
-    return (
+
+  return (
     <main
       style={{
         background: "#FFF8FB",
@@ -126,7 +127,7 @@ export default function CalculatorPage() {
                   key={product.code}
                   value={product.code}
                 >
-                  {product.code}
+                  {product.code} - {product.name}
                 </option>
               ))}
             </select>
@@ -141,15 +142,17 @@ export default function CalculatorPage() {
               }
               onChange={(e) => {
                 const newItems = [...items];
+
                 newItems[index].quantity =
                   Number(e.target.value);
+
                 setItems(newItems);
               }}
               style={inputStyle}
             />
           </div>
         ))}
-              </div>
+      </div>
 
       <div
         style={{
@@ -187,7 +190,8 @@ export default function CalculatorPage() {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent:
+              "space-between",
             fontSize: "24px",
             color: "#FF5CA8",
             fontWeight: "bold",
@@ -207,8 +211,9 @@ export default function CalculatorPage() {
             fontSize: "14px",
           }}
         >
-          International shipping is estimated and
-          may change once shipment arrives.
+          International shipping is
+          estimated and may change once
+          shipment arrives.
         </p>
       </div>
     </main>
