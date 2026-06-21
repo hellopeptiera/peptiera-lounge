@@ -161,21 +161,22 @@ export default function OrdersPage() {
   )
 )}
 <hr />
+
 <p>
   Products Total:
   ₱
-  {(
-    order.total - 250
-  ).toLocaleString()}
+  {order.total.toLocaleString()}
 </p>
+
 <p>
   Shipping Fee:
   ₱250
 </p>
+
 <h3>
   Grand Total:
   ₱
-  {order.total.toLocaleString()}
+  {(order.total + 250).toLocaleString()}
 </h3>
 <p>
   Payment Method:
