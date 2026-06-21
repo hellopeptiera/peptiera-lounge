@@ -193,27 +193,27 @@ export default function OrdersPage() {
         {order.status ===
   "Pending Payment" && (
   <>
-    <Link href="/checkout">
-      <button
-        style={{
-          background:
-            "#FF4F9F",
-          color: "white",
-          border: "none",
-          padding:
-            "15px 25px",
-          borderRadius:
-            "20px",
-          cursor:
-            "pointer",
-          marginRight:
-            "15px",
-        }}
-      >
-        💳 Proceed to
-        Checkout
-      </button>
-    </Link>
+   <button
+  onClick={() => {
+    localStorage.setItem(
+      "currentOrder",
+      JSON.stringify(order)
+    );
+
+    window.location.href = "/payment";
+  }}
+  style={{
+    background: "#FF4F9F",
+    color: "white",
+    border: "none",
+    padding: "15px 25px",
+    borderRadius: "20px",
+    cursor: "pointer",
+    marginRight: "15px",
+  }}
+>
+  💳 Proceed to Checkout
+</button>
     <button
       onClick={() =>
         cancelOrder(
