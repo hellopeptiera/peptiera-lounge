@@ -1,41 +1,36 @@
+import type { Metadata } from "next";
+import { Lexend } from "next/font/google";
 import "./globals.css";
-import Sidebar from "./Sidebar";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "Peptiéra Lounge",
+  description: "Peptiéra Member Portal",
+  keywords: [
+    "Peptiéra",
+    "Peptide",
+    "Member Portal",
+    "Biohacking",
+    "Dosage Calculator",
+    "Injection Tracker",
+    "Peptide Library",
+  ],
+};
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body
-        style={{
-          background: "#F6FFE9",
-          margin: 0,
-          padding: "20px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            gap: "24px",
-            minHeight: "100vh",
-          }}
-        >
-          <Sidebar />
-
-          <main
-            style={{
-              flex: 1,
-              background: "#FFFFFF",
-              borderRadius: "32px",
-              padding: "32px",
-              boxShadow: "0 8px 24px rgba(0,0,0,.06)",
-            }}
-          >
-            {children}
-          </main>
-        </div>
+      <body className={lexend.className}>
+        {children}
       </body>
     </html>
   );
